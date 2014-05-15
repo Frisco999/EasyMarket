@@ -1,46 +1,97 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title – приложение ASP.NET</title>
-    @Styles.Render("~/Content/css")
+    @Styles.Render("/Content/EMCSS.css")
+    @Styles.Render("/Content/bootstrap.css")
     @Scripts.Render("~/bundles/modernizr")
-    <script src="@Url.Content("~/Content/jquery-2.0.3.js")"></script>
 
 </head>
-<body>
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Имя приложения", "Index", "Home", null, new { @class = "navbar-brand" })
+<body id="body">
+    <div class="main">
+        <div id="header">
+            <div id="logo">
+                <a href="#"><img alt="" src="/images/logo.png"></a>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Домашняя страница", "Index", "Home")</li>
-                    <li>@Html.ActionLink("О программе", "About", "Home")</li>
-                    <li>@Html.ActionLink("Контакт", "Contact", "Home")</li>
+            <div class="cart">
+                <i>Now&nbspin&nbspyour&nbspcart</i></br><a href="#">0 items</a>
+            </div>
+
+            <form action="@Url.Action("Search")" method="post">
+                <div class="search1">
+                    <input name="searchword" maxlength="40" alt="Search" class="inputbox" type="text" size="40" value="search..." onblur="if(this.value=='') this.value='search...';" onfocus="if(this.value=='search...') this.value='';">
+                    <input type="submit" value="Search" class="button1" onmouseover="this.style.background = 'url(../images/button-search1.gif)'" onmouseout="    this.style.background = 'url(../images/button-search.gif)'" onclick="    /*отправка данных для поиска*/this.form.searchword.focus();">
+                </div>
+            </form>
+
+            <div id="topmenu">
+                <ul class="menu-nav">
+                    <li id="current" class="active item28">
+                        <a href="#">
+                            Home
+                        </a>
+                    </li>
+                    <li class="item29">
+                        <a href="#">
+                            Online Store
+                        </a>
+                    </li>
+                    <li class="item18"><a href="#">Specials</a></li>
+                    <li class="item30"><a href="#">What`s New?</a></li>
+                    <li class="item53"><a href="#">FAQS</li>
+                    <li class="item54"><a href="#">Contacts</a></li>
                 </ul>
-                @Html.Partial("_LoginPartial")
+
+            </div>
+
+
+        </div>
+        <nav class="navbar navbar-inverse" role="navigation" style="border-radius: 0px; font-size: 20px; font-family: font1; text-shadow: 0.5px 0px 4px #999999;">
+            <div class="container-fluid">
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">Dress Shirts</a></li>
+                        <li><a style="padding: 15px 0px;">I</a></li>
+                        <li><a href="#">Sweaters</a></li>
+                        <li><a style="padding: 15px 0px">I</a></li>
+                        <li><a href="#">Fleece&Hoodies</a></li>
+                        <li><a style="padding: 15px 0px">I</a></li>
+                        <li><a href="#">Casual Jackets</a></li>
+                        <li><a style="padding: 15px 0px">I</a></li>
+                        <li><a href="#">Coats</a></li>
+                        <li><a style="padding: 15px 0px">I</a></li>
+                        <li><a href="#">Pants</a></li>
+                    </ul>
+                </div>
+        </nav>
+
+        @RenderBody()
+
+
+        <div class="wrapper">
+            <div id="footer">
+                <div class="space">
+                    <div class="footerText" style="color:#000000">
+                        <ul class="menu">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Online Store</a></li>
+                            <li><a href="#">Specials</a></li>
+                            <li><a href="#">What's new?</a></li>
+                            <li><a href="#">FAQS</a></li>
+                            <li><a href="#">Contacts</a></li>
+                        </ul>
+                        <div>Copyright © 2014 Men's Corporate Fashion. All Rights Reserved.</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="container body-content">*@
-        @RenderBody()
-        @*<hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year – приложение ASP.NET</p>
-        </footer>
-    </div>*@
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    </div>
 </body>
 </html>
