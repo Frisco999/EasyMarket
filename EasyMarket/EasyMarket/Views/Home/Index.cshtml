@@ -1,55 +1,29 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
-@*<div id="main" style="background-color: #c3c3c3; margin-top: 200px; margin-left: 30px; display: inline-block">
-    <div id="red" style=" width: 100px; height: 100px; background-color: red; margin: 30px; display: inline-block" onclick="Select('#red')"></div>
-    <div id="blue" style="width: 100px; height: 100px; background-color: blue; inline; margin: 30px; display: inline-block" onclick="Select('#blue')"></div>
-    <div id="green" style="width: 100px; height: 100px; background-color: green; margin: 30px; display: inline-block" onclick="Select('#green')"></div>
-</div><br>
-<input type="button" value="1" onclick="First()">
-
-<table border="1" style="width: 300px; margin-top: 100px">
-    <tr><td>jQuery</td><td>четная строка</td></tr>
-    <tr><td>jQuery</td><td>нечетная строка</td></tr>
-    <tr><td>jQuery</td><td>четная строка</td></tr>
-    <tr><td>jQuery</td><td>нечетная строка</td></tr>
-    <tr><td>jQuery</td><td>четная строка</td></tr>
-    <tr><td>jQuery</td><td>нечетная строка</td></tr>
-</table><br>
-<input type="button" value="2" onclick="Second()">
-
-<style>
-    .selected
-    {
-        background-color: #b6ff00 !important;
-    }
-</style>
-
-<script>
-
-    function First()
-    {
-        $('#main').toggle("slow");
-    }
-
-    function Second()
-    {
-        $("tr:even").css("background-color", "grey");
-        $("tr:odd").css("background-color", "blue");
-        $("td:gt(5)").css("color", "yellow");
-        alert("Yeah!");
-    }
-
-    function Select(s) {
-        $('.selected').removeClass('selected');
-
-
-        $(s).addClass('selected');
-    }
-
-
-</script>*@
+<div class="box1">
+    <div class="slider">
+    </div>
+    <div class="banner">
+        <img src="../images/img1.jpg" />
+    </div>
+    <div class="banner">
+        <img src="../images/img2.jpg" />
+    </div>
+    <br>
+    <div class="banner">
+        <img src="../images/img3.jpg" />
+    </div>
+    <div class="banner">
+        <img src="../images/img4.jpg" />
+    </div>
+</div>
+<div class="category1">
+    1
+</div>
+<div class="category2">
+    1
+</div>
 
 <style>
     .odd {
