@@ -1,15 +1,49 @@
 ﻿@font-face {
 font-family: font;
-src: url(/fonts/font.ttf);
+src: url(/content/fonts/font.ttf);
 }
 @font-face {
 font-family: font1;
-src: url(/fonts/font2.ttf);
+src: url(/content/fonts/font2.ttf);
+}
+@font-face {
+font-family: font2;
+src: url(/content/fonts/font1.ttf);
+}
+@font-face {
+font-family: font3;
+src: url(/content/fonts/font3.ttf);
+}
+@font-face {
+font-family: font4;
+src: url(/content/fonts/font4.ttf);
+}
+input {
+background: #fdfdfc;
+text-transform: none;
+border: 1px solid #e8e8e8;
+color: #bebeba;
+font: normal 12px/22px Arial, Helvetica, sans-serif;
+padding: 4px 5px 4px 5px;
+margin: 20px;
+vertical-align: top;
+}
+.label1{
+font-family: font1;
+font-size:16px;
+text-align:center;
+padding:10px;
 }
 .box1{
     padding: 0px;
     margin: 10px 0;
     height: 415px;
+}
+.box2{
+   margin-top:20px;
+   padding-left:7px;
+    width:26%;
+    max-width:100%;
 }
 .banner{
     display:inline-block;
@@ -40,18 +74,33 @@ padding: 0px 0px 0px 0px;
 margin: 0px 0px 0px 0px;
 }
 .category1{
+text-shadow:1px 1px 2px #bebeba;
+color: #383838;
+font-family: font4;
+font-size:24px;
+padding:4px;
+padding-left:25px;
+max-width:100%;
 margin-top: 35px;
 height: 40px;
-width: 630px;
+width: 72%;
 background-color: #bebeba;
+float:left;
 }
 .category2{
+text-shadow:1px 1px 2px #262626;
+color:white;
+font-family: font4;
+font-size:24px;
+padding:4px;
+padding-left:25px;
+margin-left:14px; 
+max-width:100%;
 margin-top: 35px;
 height: 40px;
-width: 120px;
-background-color: red;
+width: 26%;
+background-color: #e01918;
 float:left;
-
 }
 #logo {
 position: absolute;
@@ -115,12 +164,11 @@ margin: auto;
 text-align: left;
 }
 .slider{
-    background-image: url(../Images/slide1.jpg);
+    background-image: url();
     width:440px;
     height:inherit;
     display:inline-block;
     position:absolute;
-    padding: 10px;
     overflow:hidden;
     margin-left:450px;
     margin-top:10px;
@@ -147,9 +195,22 @@ width: 261px;
 height: 34px;
 float: left;
 }
-.search1 .button1 {
+.button1 {
 text-indent: -5000px;
-background: url(../images/button-search.gif) left top repeat-x;
+background: url(/Content/images/button-search.png) left top repeat-x;
+font: normal 12px/18px Arial, Helvetica, sans-serif;
+border: none !important;
+color: #fff;
+float: left;
+width: 59px;
+height: 33px;
+padding: 0 0 2px 0;
+margin: 0px 0px 0 1px;
+}
+
+.button2 {
+text-indent: -5000px;
+background: url(/Content/images/button-login.png) left top repeat-x;
 font: normal 12px/18px Arial, Helvetica, sans-serif;
 border: none !important;
 color: #fff;
@@ -166,11 +227,11 @@ a:visited, a:active, a:after{
 float:right;
 position:absolute;
 top: -14px;
-right: 45px;
+right: 100px;
 width: 90px;
 height: 37px;
 border: none;
-background: url(../images/cart-img.gif) left top no-repeat;
+background: url(../Content/images/cart-img.gif) left top no-repeat;
 font: normal 12px/18px Arial, Helvetica, sans-serif;
 text-transform: none;
 padding: 0 0 0 48px;
@@ -178,7 +239,7 @@ margin: 0;
 }
 .search1 .searchactive {
 text-indent: -5000px;
-background: url(../images/button-search1.gif) left top repeat-x;
+background: url(../Content/images/button-search1.gif) left top repeat-x;
 font: normal 12px/18px Arial, Helvetica, sans-serif;
 border: none !important;
 color: #fff;
@@ -189,7 +250,7 @@ padding: 0 0 2px 0;
 margin: 0px 0px 0 1px;
 }
 .menu-categories ul.level1 li {
-background: url(../images/categories-li.gif) left top no-repeat;
+background: url(../Content/images/categories-li.gif) left top no-repeat;
 z-index: 98;
 font: bold 18px/21px Arial, Helvetica, sans-serif;
 float: left;
@@ -205,7 +266,7 @@ padding: 10px 0 0 2px;
 .menu-categories {
 border: none;
 border-top: none;
-background: url(../images/categories-bg.gif) left top repeat-x;
+background: url(../Content/images/categories-bg.gif) left top repeat-x;
 height: 56px;
 width: 100%;
 position: absolute;
@@ -263,4 +324,15 @@ display: inline;
 padding: 0px 25px 0 0px;
 text-transform: none;
 margin: 0 0 0 0;
+}
+.log_in{
+text-align:center;
+position: relative;
+max-width:100%;
+height: 350px;
+width: 26%;
+border: 1px #f3f2f2;
+float:left;
+padding:10px;
+margin-left:14px; 
 }

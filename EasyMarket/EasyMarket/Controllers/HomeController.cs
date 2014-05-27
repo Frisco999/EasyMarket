@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using EasyMarket.Models;
 
 namespace EasyMarket.Controllers
 {
     public class HomeController : Controller
     {
+        Easy_MarketEntities db = new Easy_MarketEntities();
         public ActionResult Index()
         {
+
             return View();
         }
 

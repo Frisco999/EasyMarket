@@ -1,49 +1,53 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="~/Scripts/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="/scripts/jquery.smslider.min.js"></script>
+    <script type="text/javascript" src="/scripts/jquery.smslider.js"></script>
     <title>@ViewBag.Title – приложение ASP.NET</title>
+    @Styles.Render("/Content/smslider.css")
     @Styles.Render("/Content/EMCSS.css")
     @Styles.Render("/Content/bootstrap.css")
     @Scripts.Render("~/bundles/modernizr")
+
 
 </head>
 <body id="body">
     <div class="main">
         <div id="header">
             <div id="logo">
-                <a href="#"><img alt="" src="/images/logo.png"></a>
+                <a href="#"><img src="~/Content/Images/logo.png" /></a>
             </div>
             <div class="cart">
-                <i>Now&nbspin&nbspyour&nbspcart</i></br><a href="#">0 items</a>
+                <i>Сейчас&nbspв&nbspвашей&nbspкорзине</i></br><a href="#">0&nbspпокупок</a>
             </div>
 
             <form action="@Url.Action("Search")" method="post">
                 <div class="search1">
                     <input name="searchword" maxlength="40" alt="Search" class="inputbox" type="text" size="40" value="search..." onblur="if(this.value=='') this.value='search...';" onfocus="if(this.value=='search...') this.value='';">
-                    <input type="submit" value="Search" class="button1" onmouseover="this.style.background = 'url(../images/button-search1.gif)'" onmouseout="    this.style.background = 'url(../images/button-search.gif)'" onclick="    /*отправка данных для поиска*/this.form.searchword.focus();">
+                    <input type="submit" value="Search" class="button1" onmouseover="this.style.background = 'url(/Content/images/button-search1.png)'" onmouseout="    this.style.background = 'url(../Content/images/button-search.png)'" onclick="    /*отправка данных для поиска*/this.form.searchword.focus();">
                 </div>
             </form>
 
             <div id="topmenu">
                 <ul class="menu-nav">
-                    <li id="current" class="active item28">
+                    <li id="current" class="active">
                         <a href="#">
-                            Home
+                            Главная
                         </a>
                     </li>
-                    <li class="item29">
+                    <li>
                         <a href="#">
-                            Online Store
+                            Товары
                         </a>
                     </li>
-                    <li class="item18"><a href="#">Specials</a></li>
-                    <li class="item30"><a href="#">What`s New?</a></li>
-                    <li class="item53"><a href="#">FAQS</li>
-                    <li class="item54"><a href="#">Contacts</a></li>
+                    <li><a href="#">Новинки</a></li>
+                    <li><a href="#">Графический поиск</a></li>
+                    <li><a href="#">Доставка</a></li>
+                    <li><a href="#">Контакты</a></li>
                 </ul>
 
             </div>
@@ -55,25 +59,26 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="#">Dress Shirts</a></li>
+                        <li><a href="#">Футболки</a></li>
                         <li><a style="padding: 15px 0px;">I</a></li>
-                        <li><a href="#">Sweaters</a></li>
+                        <li><a href="#">Майки</a></li>
                         <li><a style="padding: 15px 0px">I</a></li>
-                        <li><a href="#">Fleece&Hoodies</a></li>
+                        <li><a href="#">Рубашки</a></li>
                         <li><a style="padding: 15px 0px">I</a></li>
-                        <li><a href="#">Casual Jackets</a></li>
+                        <li><a href="#">Пиджаки</a></li>
                         <li><a style="padding: 15px 0px">I</a></li>
-                        <li><a href="#">Coats</a></li>
+                        <li><a href="#">Поло</a></li>
                         <li><a style="padding: 15px 0px">I</a></li>
-                        <li><a href="#">Pants</a></li>
+                        <li><a href="#">Жилеты</a></li>
                     </ul>
                 </div>
         </nav>
 
         @RenderBody()
 
-
+       
         <div class="wrapper">
+            <br /><br />
             <div id="footer">
                 <div class="space">
                     <div class="footerText" style="color:#000000">
@@ -92,6 +97,6 @@
         </div>
     </div>
 
-    </div>
+    
 </body>
 </html>

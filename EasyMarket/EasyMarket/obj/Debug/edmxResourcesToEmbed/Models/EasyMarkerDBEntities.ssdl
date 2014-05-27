@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Busket">
+    <Key>
+      <PropertyRef Name="id_busket" />
+    </Key>
+    <Property Name="id_busket" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="item" Type="int" />
+    <Property Name="number" Type="int" />
+  </EntityType>
+  <EntityType Name="Discount">
+    <Key>
+      <PropertyRef Name="id_discount" />
+    </Key>
+    <Property Name="id_discount" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="num_purchases" Type="int" />
+    <Property Name="discount" Type="tinyint" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Easy Market.dbo.Images" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="Images">
+    <Key>
+      <PropertyRef Name="id_item" />
+      <PropertyRef Name="image" />
+    </Key>
+    <Property Name="id_item" Type="int" Nullable="false" />
+    <Property Name="image" Type="image" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Items">
+    <Key>
+      <PropertyRef Name="id_item" />
+    </Key>
+    <Property Name="id_item" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" />
+    <Property Name="prise" Type="money" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="color" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="id_order" />
+    </Key>
+    <Property Name="id_order" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="session" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="address" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Registration">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="num_purchases" Type="int" />
+  </EntityType>
+  <EntityType Name="Session">
+    <Key>
+      <PropertyRef Name="id_session" />
+    </Key>
+    <Property Name="id_session" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="busket" Type="int" Nullable="false" />
+    <Property Name="sum_prise" Type="money" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Easy Market.dbo.Sizes" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="Sizes">
+    <Key>
+      <PropertyRef Name="id_item" />
+    </Key>
+    <Property Name="id_item" Type="int" Nullable="false" />
+    <Property Name="size" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_Busket_Items">
+    <End Role="Items" Type="Self.Items" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Busket" Type="Self.Busket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Items">
+        <PropertyRef Name="id_item" />
+      </Principal>
+      <Dependent Role="Busket">
+        <PropertyRef Name="item" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Images_Items1">
+    <End Role="Items" Type="Self.Items" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Images" Type="Self.Images" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Items">
+        <PropertyRef Name="id_item" />
+      </Principal>
+      <Dependent Role="Images">
+        <PropertyRef Name="id_item" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Session">
+    <End Role="Session" Type="Self.Session" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Session">
+        <PropertyRef Name="id_session" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="session" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Session_Busket">
+    <End Role="Busket" Type="Self.Busket" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Session" Type="Self.Session" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Busket">
+        <PropertyRef Name="id_busket" />
+      </Principal>
+      <Dependent Role="Session">
+        <PropertyRef Name="busket" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sizes_Items">
+    <End Role="Items" Type="Self.Items" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Sizes" Type="Self.Sizes" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Items">
+        <PropertyRef Name="id_item" />
+      </Principal>
+      <Dependent Role="Sizes">
+        <PropertyRef Name="id_item" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище ModelContainer">
+    <EntitySet Name="Busket" EntityType="Self.Busket" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Discount" EntityType="Self.Discount" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Registration" EntityType="Self.Registration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Session" EntityType="Self.Session" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Images" EntityType="Self.Images" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Images].[id_item] AS [id_item], 
+    [Images].[image] AS [image]
+    FROM [dbo].[Images] AS [Images]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Sizes" EntityType="Self.Sizes" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Sizes].[id_item] AS [id_item], 
+    [Sizes].[size] AS [size]
+    FROM [dbo].[Sizes] AS [Sizes]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Busket_Items" Association="Self.FK_Busket_Items">
+      <End Role="Items" EntitySet="Items" />
+      <End Role="Busket" EntitySet="Busket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Images_Items1" Association="Self.FK_Images_Items1">
+      <End Role="Items" EntitySet="Items" />
+      <End Role="Images" EntitySet="Images" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Session" Association="Self.FK_Order_Session">
+      <End Role="Session" EntitySet="Session" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Session_Busket" Association="Self.FK_Session_Busket">
+      <End Role="Busket" EntitySet="Busket" />
+      <End Role="Session" EntitySet="Session" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sizes_Items" Association="Self.FK_Sizes_Items">
+      <End Role="Items" EntitySet="Items" />
+      <End Role="Sizes" EntitySet="Sizes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
