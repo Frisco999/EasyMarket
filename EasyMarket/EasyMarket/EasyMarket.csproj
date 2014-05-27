@@ -43,6 +43,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -164,48 +166,110 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Busket.cs">
+      <DependentUpon>EasyMarkerDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Discount.cs">
+      <DependentUpon>EasyMarkerDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EasyMarkerDBEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EasyMarkerDBEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EasyMarkerDBEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EasyMarkerDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EasyMarkerDBEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EasyMarkerDBEntities.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Image.cs">
+      <DependentUpon>EasyMarkerDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Item.cs">
+      <DependentUpon>EasyMarkerDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>EasyMarkerDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Registration.cs">
+      <DependentUpon>EasyMarkerDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Session.cs">
+      <DependentUpon>EasyMarkerDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Size.cs">
+      <DependentUpon>EasyMarkerDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>EasyMarkerDBEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <None Include="Content\jquery-2.0.3.intellisense.js" />
+    <Content Include="Content\fonts\font3.ttf" />
+    <None Include="Scripts\jquery-2.0.3.intellisense.js" />
     <Content Include="Content\EMCSS.css" />
-    <Content Include="Content\jquery-2.0.3.js" />
-    <Content Include="Content\jquery-2.0.3.min.js" />
-    <Content Include="Content\jquery-migrate-1.1.1.js" />
-    <Content Include="Content\jquery-migrate-1.1.1.min.js" />
-    <Content Include="Content\jquery-ui-1.10.3.js" />
-    <Content Include="Content\jquery-ui-1.10.3.min.js" />
-    <None Include="Content\jquery.validate-vsdoc.js" />
-    <Content Include="Content\jquery.validate.min.js" />
-    <Content Include="Content\jquery.validate.unobtrusive-custom-for-bootstrap.js" />
-    <Content Include="Content\jquery.validate.unobtrusive.js" />
-    <Content Include="Content\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Content\Images\button-login.png" />
+    <Content Include="Content\Images\button-login1.png" />
+    <Content Include="Content\Images\button-search.png" />
+    <Content Include="Content\Images\button-search1.png" />
+    <Content Include="Scripts\jquery-2.0.3.js" />
+    <Content Include="Scripts\jquery-2.0.3.min.js" />
+    <Content Include="Scripts\jquery-latest.min.js" />
+    <Content Include="Scripts\jquery-migrate-1.1.1.js" />
+    <Content Include="Scripts\jquery-migrate-1.1.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.10.3.js" />
+    <Content Include="Scripts\jquery-ui-1.10.3.min.js" />
+    <Content Include="Scripts\jquery.smslider.js" />
+    <Content Include="Scripts\jquery.smslider.min.js" />
+    <Content Include="Content\smslider.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\button-search.gif" />
-    <Content Include="Images\button-search1.gif" />
-    <Content Include="Images\cart-img.gif" />
-    <Content Include="Images\categories-bg.gif" />
-    <Content Include="Images\categories-li.gif" />
-    <Content Include="Images\img1.jpg" />
-    <Content Include="Images\img2.jpg" />
-    <Content Include="Images\img3.jpg" />
-    <Content Include="Images\img4.jpg" />
-    <Content Include="Images\logo.png" />
-    <Content Include="Images\slide1.jpg" />
+    <Content Include="Content\Images\cart-img.gif" />
+    <Content Include="Content\Images\categories-bg.gif" />
+    <Content Include="Content\Images\categories-li.gif" />
+    <Content Include="Content\Images\img1.jpg" />
+    <Content Include="Content\Images\img2.jpg" />
+    <Content Include="Content\Images\img3.jpg" />
+    <Content Include="Content\Images\img4.jpg" />
+    <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\slide1.jpg" />
+    <Content Include="Content\Images\sm_arr.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Content\jquery-2.0.3.min.map" />
-    <Content Include="fonts\font.ttf" />
-    <Content Include="fonts\font1.ttf" />
-    <Content Include="fonts\font2.ttf" />
-    <Content Include="fonts\font3.ttf" />
+    <Content Include="Scripts\jquery-2.0.3.min.map" />
+    <Content Include="Content\fonts\font.ttf" />
+    <Content Include="Content\fonts\font1.ttf" />
+    <Content Include="Content\fonts\font2.ttf" />
+    <Content Include="Content\fonts\font4.ttf" />
+    <EntityDeploy Include="Models\EasyMarkerDBEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EasyMarkerDBEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\EasyMarkerDBEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EasyMarkerDBEntities.edmx</DependentUpon>
+      <LastGenOutput>EasyMarkerDBEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\EasyMarkerDBEntities.edmx.diagram">
+      <DependentUpon>EasyMarkerDBEntities.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\EasyMarkerDBEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EasyMarkerDBEntities.edmx</DependentUpon>
+      <LastGenOutput>EasyMarkerDBEntities.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -248,11 +312,14 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

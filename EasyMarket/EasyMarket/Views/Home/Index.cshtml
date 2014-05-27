@@ -3,53 +3,61 @@
 }
 <div class="box1">
     <div class="slider">
+        <div id="sm_slider1">
+            <ul>
+                <li> <img src="/Content/Images/slide1.jpg" /></li>
+                <li>p2</li>
+                <li>p3</li>
+            </ul>
+        </div>
     </div>
     <div class="banner">
-        <img src="../images/img1.jpg" />
+        <img src="../Content/images/img1.jpg" />
     </div>
     <div class="banner">
-        <img src="../images/img2.jpg" />
+        <img src="../Content/images/img2.jpg" />
     </div>
     <br>
     <div class="banner">
-        <img src="../images/img3.jpg" />
+        <img src="../Content/images/img3.jpg" />
     </div>
     <div class="banner">
-        <img src="../images/img4.jpg" />
+        <img src="../Content/images/img4.jpg" />
     </div>
 </div>
+
 <div class="category1">
-    1
+    Популярные продукты
 </div>
+
 <div class="category2">
-    1
+        Вход
+    </div>
+<div style="float: left;">
+    <div id="sm_slider">
+        <ul>
+            <li>p1</li>
+            <li>p2</li>
+            <li>p3</li>
+        </ul>
+    </div>
+</div>
+<div class="log_in">
+    <div class="box2">
+        <span class="label1"> Имя&nbspпользователя</span>
+        <input style="width: 200px; height: 30px; font-size: 16px; margin: 5px 0px 10px; !important;" type="text" >
+        <span class="label1">Пароль</span>
+        <input style="width: 200px; height: 30px; font-size: 16px; margin: 5px 0px 10px; !important" type="password" >
+        <button class="button2" onmouseover="this.style.background = 'url(/Content/images/button-login1.png)'" onmouseout="    this.style.background = 'url(../Content/images/button-login.png)'" onclick="    /*отправка данных для поиска*/this.form.searchword.focus();" type="submit">Вход</button>
+    </div>
 </div>
 
-<style>
-    .odd {
-        background-color: #18c82c;
-    }
-</style>
+    <script>
 
-<h2 style="margin-left: 50px">Пример использования <b style="color: #18c82c">jQuery</b></h2>
-
-<table border="1" style="width: 300px; margin-top: 100px; margin-left: 100px">
-    <tr><td>1</td><td>четная строка</td></tr>
-    <tr><td>2</td><td>нечетная строка</td></tr>
-    <tr><td>3</td><td>четная строка</td></tr>
-    <tr><td>4</td><td>нечетная строка</td></tr>
-    <tr><td>5</td><td>четная строка</td></tr>
-    <tr><td>6</td><td>нечетная строка</td></tr>
-</table>
-
-<script>
-
-    var tables = document.getElementsByTagName("table");
-    for (var t = 0; t < tables.length; t++) {
-        var rows = tables[t].getElementsByTagName("tr");
-        for (var i = 1; i < rows.length; i += 2)
-            if (!/(^|s)odd(s|$)/.test(rows[i].className))
-                rows[i].className += " odd";
-    }
-
-</script>
+        $(document).ready(function () {
+            $('#sm_slider').smSlider()
+        })
+        $(document).ready(function () {
+            $('#sm_slider1').smSlider1()
+        })
+     </script>
