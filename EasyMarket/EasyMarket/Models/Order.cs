@@ -15,13 +15,13 @@ namespace EasyMarket.Models
     public partial class Order
     {
         public int id_order { get; set; }
-        public int session { get; set; }
+        public int busket { get; set; }
         public string name { get; set; }
         public string surname { get; set; }
         public string email { get; set; }
         public string phone { get; set; }
         public string address { get; set; }
     
-        public virtual Session Session1 { get; set; }
+        public virtual Busket Busket1 { get; set; }
     }
 }

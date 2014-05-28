@@ -12,18 +12,15 @@ namespace EasyMarket.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Session
+    public partial class User
     {
-        public Session()
-        {
-            this.Orders = new HashSet<Order>();
-        }
-    
-        public int id_session { get; set; }
-        public int busket { get; set; }
-        public Nullable<decimal> sum_prise { get; set; }
-    
-        public virtual Busket Busket1 { get; set; }
-        public virtual ICollection<Order> Orders { get; set; }
+        public int id_user { get; set; }
+        public string name { get; set; }
+        public string surname { get; set; }
+        public string password { get; set; }
+        public string address { get; set; }
+        public string phone { get; set; }
+        public string email { get; set; }
+        public Nullable<int> num_purchases { get; set; }
     }
 }

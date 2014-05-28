@@ -1,5 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Easy_MarketEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Buskets" EntityType="Model.Busket" />
+    <EntitySet Name="Discounts" EntityType="Model.Discount" />
+    <EntitySet Name="Items" EntityType="Model.Item" />
+    <EntitySet Name="Orders" EntityType="Model.Order" />
+    <EntitySet Name="sysdiagrams" EntityType="Model.sysdiagram" />
+    <EntitySet Name="Users" EntityType="Model.User" />
+    <EntitySet Name="Images" EntityType="Model.Image" />
+    <EntitySet Name="Sizes" EntityType="Model.Size" />
+    <AssociationSet Name="FK_Busket_Items" Association="Model.FK_Busket_Items">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="Busket" EntitySet="Buskets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Busket" Association="Model.FK_Order_Busket">
+      <End Role="Busket" EntitySet="Buskets" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Images_Items" Association="Model.FK_Images_Items">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="Image" EntitySet="Images" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sizes_Items" Association="Model.FK_Sizes_Items">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="Size" EntitySet="Sizes" />
+    </AssociationSet>
+  </EntityContainer>
   <EntityType Name="Busket">
     <Key>
       <PropertyRef Name="id_busket" />
@@ -7,8 +33,8 @@
     <Property Name="id_busket" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="item" Type="Int32" />
     <Property Name="number" Type="Int32" />
-    <NavigationProperty Name="Item1" Relationship="Self.FK_Busket_Items" FromRole="Busket" ToRole="Items" />
-    <NavigationProperty Name="Sessions" Relationship="Self.FK_Session_Busket" FromRole="Busket" ToRole="Session" />
+    <NavigationProperty Name="Item1" Relationship="Model.FK_Busket_Items" FromRole="Busket" ToRole="Item" />
+    <NavigationProperty Name="Orders" Relationship="Model.FK_Order_Busket" FromRole="Busket" ToRole="Order" />
   </EntityType>
   <EntityType Name="Discount">
     <Key>
@@ -27,64 +53,54 @@
     <Property Name="prise" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Buskets" Relationship="Self.FK_Busket_Items" FromRole="Items" ToRole="Busket" />
-    <NavigationProperty Name="Images" Relationship="Self.FK_Images_Items1" FromRole="Items" ToRole="Images" />
-    <NavigationProperty Name="Size" Relationship="Self.FK_Sizes_Items" FromRole="Items" ToRole="Sizes" />
+    <NavigationProperty Name="Buskets" Relationship="Model.FK_Busket_Items" FromRole="Item" ToRole="Busket" />
+    <NavigationProperty Name="Images" Relationship="Model.FK_Images_Items" FromRole="Item" ToRole="Image" />
+    <NavigationProperty Name="Size" Relationship="Model.FK_Sizes_Items" FromRole="Item" ToRole="Size" />
   </EntityType>
   <EntityType Name="Order">
     <Key>
       <PropertyRef Name="id_order" />
     </Key>
     <Property Name="id_order" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="session" Type="Int32" Nullable="false" />
-    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Session1" Relationship="Self.FK_Order_Session" FromRole="Order" ToRole="Session" />
-  </EntityType>
-  <EntityType Name="Registration">
-    <Key>
-      <PropertyRef Name="id_user" />
-    </Key>
-    <Property Name="id_user" Type="Int32" Nullable="false" />
-    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="num_purchases" Type="Int32" />
-  </EntityType>
-  <EntityType Name="Session">
-    <Key>
-      <PropertyRef Name="id_session" />
-    </Key>
-    <Property Name="id_session" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="busket" Type="Int32" Nullable="false" />
-    <Property Name="sum_prise" Type="Decimal" Precision="19" Scale="4" />
-    <NavigationProperty Name="Busket1" Relationship="Self.FK_Session_Busket" FromRole="Session" ToRole="Busket" />
-    <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Session" FromRole="Session" ToRole="Order" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Busket1" Relationship="Model.FK_Order_Busket" FromRole="Order" ToRole="Busket" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>
       <PropertyRef Name="diagram_id" />
     </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="principal_id" Type="Int32" Nullable="false" />
     <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="num_purchases" Type="Int32" />
   </EntityType>
   <EntityType Name="Image">
     <Key>
       <PropertyRef Name="id_item" />
       <PropertyRef Name="image1" />
     </Key>
-    <Property Name="id_item" Type="Int32" Nullable="false" />
-    <Property Name="image1" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-    <NavigationProperty Name="Item" Relationship="Self.FK_Images_Items1" FromRole="Images" ToRole="Items" />
+    <Property Name="id_item" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="image1" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Item" Relationship="Model.FK_Images_Items" FromRole="Image" ToRole="Item" />
   </EntityType>
   <EntityType Name="Size">
     <Key>
@@ -92,15 +108,15 @@
     </Key>
     <Property Name="id_item" Type="Int32" Nullable="false" />
     <Property Name="size1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Item" Relationship="Self.FK_Sizes_Items" FromRole="Sizes" ToRole="Items" />
+    <NavigationProperty Name="Item" Relationship="Model.FK_Sizes_Items" FromRole="Size" ToRole="Item" />
   </EntityType>
   <Association Name="FK_Busket_Items">
-    <End Role="Items" Type="Self.Item" Multiplicity="0..1">
+    <End Type="Model.Item" Role="Item" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Busket" Type="Self.Busket" Multiplicity="*" />
+    <End Type="Model.Busket" Role="Busket" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Items">
+      <Principal Role="Item">
         <PropertyRef Name="id_item" />
       </Principal>
       <Dependent Role="Busket">
@@ -108,91 +124,40 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Session_Busket">
-    <End Role="Busket" Type="Self.Busket" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="Session" Type="Self.Session" Multiplicity="*" />
+  <Association Name="FK_Order_Busket">
+    <End Type="Model.Busket" Role="Busket" Multiplicity="1" />
+    <End Type="Model.Order" Role="Order" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Busket">
         <PropertyRef Name="id_busket" />
       </Principal>
-      <Dependent Role="Session">
+      <Dependent Role="Order">
         <PropertyRef Name="busket" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Images_Items1">
-    <End Role="Items" Type="Self.Item" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="Images" Type="Self.Image" Multiplicity="*" />
+  <Association Name="FK_Images_Items">
+    <End Type="Model.Item" Role="Item" Multiplicity="1" />
+    <End Type="Model.Image" Role="Image" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Items">
+      <Principal Role="Item">
         <PropertyRef Name="id_item" />
       </Principal>
-      <Dependent Role="Images">
+      <Dependent Role="Image">
         <PropertyRef Name="id_item" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Sizes_Items">
-    <End Role="Items" Type="Self.Item" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="Sizes" Type="Self.Size" Multiplicity="0..1" />
+    <End Type="Model.Item" Role="Item" Multiplicity="1" />
+    <End Type="Model.Size" Role="Size" Multiplicity="0..1" />
     <ReferentialConstraint>
-      <Principal Role="Items">
+      <Principal Role="Item">
         <PropertyRef Name="id_item" />
       </Principal>
-      <Dependent Role="Sizes">
+      <Dependent Role="Size">
         <PropertyRef Name="id_item" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Order_Session">
-    <End Role="Session" Type="Self.Session" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="Order" Type="Self.Order" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Session">
-        <PropertyRef Name="id_session" />
-      </Principal>
-      <Dependent Role="Order">
-        <PropertyRef Name="session" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityContainer Name="Easy_MarketEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Buskets" EntityType="Self.Busket" />
-    <EntitySet Name="Discounts" EntityType="Self.Discount" />
-    <EntitySet Name="Items" EntityType="Self.Item" />
-    <EntitySet Name="Orders" EntityType="Self.Order" />
-    <EntitySet Name="Registrations" EntityType="Self.Registration" />
-    <EntitySet Name="Sessions" EntityType="Self.Session" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-    <EntitySet Name="Images" EntityType="Self.Image" />
-    <EntitySet Name="Sizes" EntityType="Self.Size" />
-    <AssociationSet Name="FK_Busket_Items" Association="Self.FK_Busket_Items">
-      <End Role="Items" EntitySet="Items" />
-      <End Role="Busket" EntitySet="Buskets" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Session_Busket" Association="Self.FK_Session_Busket">
-      <End Role="Busket" EntitySet="Buskets" />
-      <End Role="Session" EntitySet="Sessions" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Images_Items1" Association="Self.FK_Images_Items1">
-      <End Role="Items" EntitySet="Items" />
-      <End Role="Images" EntitySet="Images" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Sizes_Items" Association="Self.FK_Sizes_Items">
-      <End Role="Items" EntitySet="Items" />
-      <End Role="Sizes" EntitySet="Sizes" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Order_Session" Association="Self.FK_Order_Session">
-      <End Role="Session" EntitySet="Sessions" />
-      <End Role="Order" EntitySet="Orders" />
-    </AssociationSet>
-  </EntityContainer>
 </Schema>
