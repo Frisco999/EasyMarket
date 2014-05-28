@@ -79,6 +79,7 @@
     <Property Name="phone" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="email" Type="nvarchar(max)" Nullable="false" />
     <Property Name="num_purchases" Type="int" />
+    <Property Name="rememberme" Type="bit" />
   </EntityType>
   <Association Name="FK_Busket_Items">
     <End Role="Items" Type="Self.Items" Multiplicity="0..1">
