@@ -84,6 +84,7 @@
           <Property Name="phone" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="email" Type="nvarchar(max)" Nullable="false" />
           <Property Name="num_purchases" Type="int" />
+          <Property Name="rememberme" Type="bit" />
         </EntityType>
         <Association Name="FK_Busket_Items">
           <End Role="Items" Type="Self.Items" Multiplicity="0..1">
@@ -267,6 +268,7 @@
           <Property Name="phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="num_purchases" Type="Int32" />
+          <Property Name="rememberme" Type="Boolean" />
         </EntityType>
         <EntityType Name="Image">
           <Key>
@@ -397,6 +399,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="Model.User">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="rememberme" ColumnName="rememberme" />
                 <ScalarProperty Name="num_purchases" ColumnName="num_purchases" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="phone" ColumnName="phone" />

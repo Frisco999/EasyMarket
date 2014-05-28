@@ -22,5 +22,6 @@ namespace EasyMarket.Models
         public string phone { get; set; }
         public string email { get; set; }
         public Nullable<int> num_purchases { get; set; }
+        public bool rememberme { get; set; }
     }
 }

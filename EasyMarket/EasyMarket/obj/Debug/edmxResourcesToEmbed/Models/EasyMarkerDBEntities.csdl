@@ -92,6 +92,7 @@
     <Property Name="phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="num_purchases" Type="Int32" />
+    <Property Name="rememberme" Type="Boolean" />
   </EntityType>
   <EntityType Name="Image">
     <Key>

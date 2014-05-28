@@ -57,6 +57,7 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="Model.User">
         <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="rememberme" ColumnName="rememberme" />
           <ScalarProperty Name="num_purchases" ColumnName="num_purchases" />
           <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="phone" ColumnName="phone" />

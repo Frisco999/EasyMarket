@@ -1,6 +1,15 @@
-﻿@{
+﻿@using System.Web.Security;
+@using System.Web;
+@using System;
+@using System.Collections.Generic;
+@using System.Linq;
+@using System.Web.Mvc;
+@using EasyMarket.Models;
+@using System.Web.UI;
+@{
     ViewBag.Title = "Home Page";
 }
+@model EasyMarket.Models.User
 <div class="box1">
     <div class="slider">
         <div id="sm_slider1">
@@ -43,22 +52,45 @@
         </ul>
     </div>
 </div>
-<div class="log_in">
-    <div class="box2">
-        <span class="label1"> Имя&nbspпользователя</span>
-        <input style="width: 200px; height: 30px; font-size: 16px; margin: 5px 0px 10px; !important;" type="text" >
-        <span class="label1">Пароль</span>
-        <input style="width: 200px; height: 30px; font-size: 16px; margin: 5px 0px 10px; !important" type="password" >
-        <button class="button2" onmouseover="this.style.background = 'url(/Content/images/button-login1.png)'" onmouseout="    this.style.background = 'url(../Content/images/button-login.png)'" onclick="    /*отправка данных для поиска*/this.form.searchword.focus();" type="submit">Вход</button>
+@if (ViewBag.Autorized)
+{
+    <div class="log_in">
+        <div class="box2">
+
+            Здравствуйте, Пользователь!
+            @Html.ActionLink("Выход", "LogOut", "Home", new { @class = "button2" })
+          
+            
+        </div>
     </div>
-</div>
+}
+@if (!ViewBag.Autorized)
+{
+    <div class="log_in">
+        <div class="box2">
 
-    <script>
+            @using (Html.BeginForm("Autorization", "Home"))
+            {
 
-        $(document).ready(function () {
-            $('#sm_slider').smSlider()
-        })
-        $(document).ready(function () {
-            $('#sm_slider1').smSlider1()
-        })
-     </script>
+                @Html.LabelFor(models => models.email, new { @class = "label1" })
+                @Html.TextBoxFor(models => models.email, new { @Style = "width: 200px; height: 30px; font-size: 16px; margin: -10px 0px 5px; !important;" })
+                @Html.LabelFor(models => models.password, new { @class = "label1" })
+                @Html.PasswordFor(models => models.password, new { @Style = "width: 200px; height: 30px; font-size: 16px; margin: -10px 0px 10px; !important" })
+                <input name="login" class="button2" style="float:left;" onmouseover="this.style.background = 'url(/Content/images/button-login1.png)'" onmouseout="    this.style.background = 'url(../Content/images/button-login.png)'" onclick="    /*отправка данных для поиска*/this.form.searchword.focus();" type="submit"></input>
+                 @Html.CheckBoxFor(models => models.rememberme, new { @style = "float:left; width: 15px; margin-left:5px; margin-top:6px" })
+                 @Html.Label("Запомнить", new { @style = "float:left; width: 20px; margin-left:5px; margin-top:5px" })
+            }
+        </div>
+    </div>
+}
+<script>
+
+    $(document).ready(function () {
+        $('#sm_slider').smSlider()
+    })
+    $(document).ready(function () {
+        $('#sm_slider1').smSlider1()
+    })
+</script>
+
+
