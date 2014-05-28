@@ -16,7 +16,7 @@ namespace EasyMarket.Models
     {
         public Busket()
         {
-            this.Sessions = new HashSet<Session>();
+            this.Orders = new HashSet<Order>();
         }
     
         public int id_busket { get; set; }
@@ -24,6 +24,6 @@ namespace EasyMarket.Models
         public Nullable<int> number { get; set; }
     
         public virtual Item Item1 { get; set; }
-        public virtual ICollection<Session> Sessions { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

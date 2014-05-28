@@ -29,9 +29,8 @@ namespace EasyMarket.Models
         public virtual DbSet<Discount> Discounts { get; set; }
         public virtual DbSet<Item> Items { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
-        public virtual DbSet<Registration> Registrations { get; set; }
-        public virtual DbSet<Session> Sessions { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Image> Images { get; set; }
         public virtual DbSet<Size> Sizes { get; set; }
     }

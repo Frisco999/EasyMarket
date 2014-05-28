@@ -143,6 +143,5 @@ C:\Users\Алина\Новая папка\EasyMarket\EasyMarket\EasyMarket\bin\r
 C:\Users\Алина\Новая папка\EasyMarket\EasyMarket\EasyMarket\bin\ru\Microsoft.Owin.Security.Google.resources.dll
 C:\Users\Алина\Новая папка\EasyMarket\EasyMarket\EasyMarket\bin\ru\Microsoft.Owin.Security.Twitter.resources.dll
 C:\Users\Алина\Новая папка\EasyMarket\EasyMarket\EasyMarket\bin\ru\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
-C:\Users\Алина\Новая папка\EasyMarket\EasyMarket\EasyMarket\obj\Debug\EasyMarket.csprojResolveAssemblyReference.cache
 C:\Users\Алина\Новая папка\EasyMarket\EasyMarket\EasyMarket\obj\Debug\EasyMarket.dll
 C:\Users\Алина\Новая папка\EasyMarket\EasyMarket\EasyMarket\obj\Debug\EasyMarket.pdb

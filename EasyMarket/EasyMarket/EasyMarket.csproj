@@ -197,16 +197,13 @@
     <Compile Include="Models\Order.cs">
       <DependentUpon>EasyMarkerDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Registration.cs">
-      <DependentUpon>EasyMarkerDBEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Session.cs">
-      <DependentUpon>EasyMarkerDBEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Size.cs">
       <DependentUpon>EasyMarkerDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>EasyMarkerDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
       <DependentUpon>EasyMarkerDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
