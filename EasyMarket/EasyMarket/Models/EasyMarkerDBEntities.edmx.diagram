@@ -5,18 +5,16 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="ede9f4754e914d1c931e1c17da2ca6bf" Name="Diagram1">
-        <EntityTypeShape EntityType="Model.Busket" Width="1.5" PointX="3" PointY="6.125" />
-        <EntityTypeShape EntityType="Model.Discount" Width="1.5" PointX="5.75" PointY="0.75" />
-        <EntityTypeShape EntityType="Model.Item" Width="1.5" PointX="0.75" PointY="3.5" />
-        <EntityTypeShape EntityType="Model.Order" Width="1.5" PointX="5.25" PointY="5.875" />
-        <EntityTypeShape EntityType="Model.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" />
-        <EntityTypeShape EntityType="Model.User" Width="1.5" PointX="7.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Model.Busket" Width="1.5" PointX="5.75" PointY="1.375" />
+        <EntityTypeShape EntityType="Model.Item" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="Model.Order" Width="1.5" PointX="8" PointY="1" />
+        <EntityTypeShape EntityType="Model.sysdiagram" Width="1.5" PointX="5.75" PointY="4.75" />
+        <EntityTypeShape EntityType="Model.User" Width="1.5" PointX="0.75" PointY="6.75" />
         <EntityTypeShape EntityType="Model.Image" Width="1.5" PointX="3" PointY="3.5" />
-        <EntityTypeShape EntityType="Model.Size" Width="1.5" PointX="3" PointY="1.125" />
-        <AssociationConnector Association="Model.FK_Busket_Items" />
+        <EntityTypeShape EntityType="Model.Size" Width="1.5" PointX="3" PointY="1.25" />
         <AssociationConnector Association="Model.FK_Order_Busket" />
-        <AssociationConnector Association="Model.FK_Images_Items" />
-        <AssociationConnector Association="Model.FK_Sizes_Items" />
+        <AssociationConnector Association="Model.FK_Image_Item" />
+        <AssociationConnector Association="Model.FK_Size_Item" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
