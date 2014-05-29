@@ -14,7 +14,7 @@ namespace EasyMarket.Models
     
     public partial class User
     {
-        public int id_user { get; set; }
+        public System.Guid id_user { get; set; }
         public string name { get; set; }
         public string surname { get; set; }
         public string password { get; set; }

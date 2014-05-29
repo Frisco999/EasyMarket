@@ -14,9 +14,9 @@ namespace EasyMarket.Models
     
     public partial class Size
     {
-        public int id_item { get; set; }
+        public System.Guid item { get; set; }
         public string size1 { get; set; }
     
-        public virtual Item Item { get; set; }
+        public virtual Item Item1 { get; set; }
     }
 }

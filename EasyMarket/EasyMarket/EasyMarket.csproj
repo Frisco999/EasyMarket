@@ -161,16 +161,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Classes\CurrentUser.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Busket.cs">
-      <DependentUpon>EasyMarkerDBEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Discount.cs">
       <DependentUpon>EasyMarkerDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EasyMarkerDBEntities.Context.cs">
@@ -218,6 +216,14 @@
     <Content Include="Content\EMCSS.css" />
     <Content Include="Content\Images\button-login.png" />
     <Content Include="Content\Images\button-login1.png" />
+    <Content Include="Content\Images\button-logout.png" />
+    <Content Include="Content\Images\button-logout1.png" />
+    <Content Include="Content\Images\button-ok.png" />
+    <Content Include="Content\Images\button-ok1.png" />
+    <Content Include="Content\Images\button-registration.png" />
+    <Content Include="Content\Images\button-registration1.png" />
+    <Content Include="Content\Images\button-registration2.png" />
+    <Content Include="Content\Images\button-registration3.png" />
     <Content Include="Content\Images\button-search.png" />
     <Content Include="Content\Images\button-search1.png" />
     <Content Include="Scripts\jquery-2.0.3.js" />
@@ -289,22 +295,11 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
-    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Manage.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Accounts\Registration.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

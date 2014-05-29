@@ -19,11 +19,10 @@ namespace EasyMarket.Models
             this.Orders = new HashSet<Order>();
         }
     
-        public int id_busket { get; set; }
-        public Nullable<int> item { get; set; }
-        public Nullable<int> number { get; set; }
+        public System.Guid Id_Busket { get; set; }
+        public int item { get; set; }
+        public int number { get; set; }
     
-        public virtual Item Item1 { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
     }
 }

@@ -2,72 +2,67 @@
 <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="Easy_MarketEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Buskets" EntityType="Model.Busket" />
-    <EntitySet Name="Discounts" EntityType="Model.Discount" />
     <EntitySet Name="Items" EntityType="Model.Item" />
     <EntitySet Name="Orders" EntityType="Model.Order" />
     <EntitySet Name="sysdiagrams" EntityType="Model.sysdiagram" />
     <EntitySet Name="Users" EntityType="Model.User" />
     <EntitySet Name="Images" EntityType="Model.Image" />
     <EntitySet Name="Sizes" EntityType="Model.Size" />
-    <AssociationSet Name="FK_Busket_Items" Association="Model.FK_Busket_Items">
-      <End Role="Item" EntitySet="Items" />
-      <End Role="Busket" EntitySet="Buskets" />
-    </AssociationSet>
     <AssociationSet Name="FK_Order_Busket" Association="Model.FK_Order_Busket">
       <End Role="Busket" EntitySet="Buskets" />
       <End Role="Order" EntitySet="Orders" />
     </AssociationSet>
-    <AssociationSet Name="FK_Images_Items" Association="Model.FK_Images_Items">
+    <AssociationSet Name="FK_Image_Item" Association="Model.FK_Image_Item">
       <End Role="Item" EntitySet="Items" />
       <End Role="Image" EntitySet="Images" />
     </AssociationSet>
-    <AssociationSet Name="FK_Sizes_Items" Association="Model.FK_Sizes_Items">
+    <AssociationSet Name="FK_Size_Item" Association="Model.FK_Size_Item">
       <End Role="Item" EntitySet="Items" />
       <End Role="Size" EntitySet="Sizes" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Busket">
     <Key>
-      <PropertyRef Name="id_busket" />
+      <PropertyRef Name="Id_Busket" />
     </Key>
-    <Property Name="id_busket" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="item" Type="Int32" />
-    <Property Name="number" Type="Int32" />
-    <NavigationProperty Name="Item1" Relationship="Model.FK_Busket_Items" FromRole="Busket" ToRole="Item" />
+    <Property Name="Id_Busket" Type="Guid" Nullable="false" />
+    <Property Name="item" Type="Int32" Nullable="false" />
+    <Property Name="number" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Orders" Relationship="Model.FK_Order_Busket" FromRole="Busket" ToRole="Order" />
-  </EntityType>
-  <EntityType Name="Discount">
-    <Key>
-      <PropertyRef Name="id_discount" />
-    </Key>
-    <Property Name="id_discount" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="num_purchases" Type="Int32" />
-    <Property Name="discount1" Type="Byte" />
   </EntityType>
   <EntityType Name="Item">
     <Key>
       <PropertyRef Name="id_item" />
     </Key>
-    <Property Name="id_item" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="prise" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Buskets" Relationship="Model.FK_Busket_Items" FromRole="Item" ToRole="Busket" />
-    <NavigationProperty Name="Images" Relationship="Model.FK_Images_Items" FromRole="Item" ToRole="Image" />
-    <NavigationProperty Name="Size" Relationship="Model.FK_Sizes_Items" FromRole="Item" ToRole="Size" />
+    <Property Name="id_item" Type="Guid" Nullable="false" />
+    <Property Name="model" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="prise" Type="Int32" Nullable="false" />
+    <Property Name="type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="color" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sleeve_length" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="lenght" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="collar" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="clasp" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="pockets" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="image" Type="Boolean" Nullable="false" />
+    <Property Name="brand" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="num_purchases" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Images" Relationship="Model.FK_Image_Item" FromRole="Item" ToRole="Image" />
+    <NavigationProperty Name="Sizes" Relationship="Model.FK_Size_Item" FromRole="Item" ToRole="Size" />
   </EntityType>
   <EntityType Name="Order">
     <Key>
       <PropertyRef Name="id_order" />
     </Key>
-    <Property Name="id_order" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="busket" Type="Int32" Nullable="false" />
+    <Property Name="id_order" Type="Guid" Nullable="false" />
+    <Property Name="busket" Type="Guid" Nullable="false" />
     <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="Int32" Nullable="false" />
+    <Property Name="address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Busket1" Relationship="Model.FK_Order_Busket" FromRole="Order" ToRole="Busket" />
   </EntityType>
   <EntityType Name="sysdiagram">
@@ -84,60 +79,47 @@
     <Key>
       <PropertyRef Name="id_user" />
     </Key>
-    <Property Name="id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_user" Type="Guid" Nullable="false" />
     <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="num_purchases" Type="Int32" />
-    <Property Name="rememberme" Type="Boolean" />
+    <Property Name="rememberme" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Image">
     <Key>
-      <PropertyRef Name="id_item" />
+      <PropertyRef Name="item" />
       <PropertyRef Name="image1" />
     </Key>
-    <Property Name="id_item" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="image1" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
-    <NavigationProperty Name="Item" Relationship="Model.FK_Images_Items" FromRole="Image" ToRole="Item" />
+    <Property Name="item" Type="Guid" Nullable="false" />
+    <Property Name="image1" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Item1" Relationship="Model.FK_Image_Item" FromRole="Image" ToRole="Item" />
   </EntityType>
   <EntityType Name="Size">
     <Key>
-      <PropertyRef Name="id_item" />
+      <PropertyRef Name="item" />
+      <PropertyRef Name="size1" />
     </Key>
-    <Property Name="id_item" Type="Int32" Nullable="false" />
-    <Property Name="size1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Item" Relationship="Model.FK_Sizes_Items" FromRole="Size" ToRole="Item" />
+    <Property Name="item" Type="Guid" Nullable="false" />
+    <Property Name="size1" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Item1" Relationship="Model.FK_Size_Item" FromRole="Size" ToRole="Item" />
   </EntityType>
-  <Association Name="FK_Busket_Items">
-    <End Type="Model.Item" Role="Item" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Type="Model.Busket" Role="Busket" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Item">
-        <PropertyRef Name="id_item" />
-      </Principal>
-      <Dependent Role="Busket">
-        <PropertyRef Name="item" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Order_Busket">
     <End Type="Model.Busket" Role="Busket" Multiplicity="1" />
     <End Type="Model.Order" Role="Order" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Busket">
-        <PropertyRef Name="id_busket" />
+        <PropertyRef Name="Id_Busket" />
       </Principal>
       <Dependent Role="Order">
         <PropertyRef Name="busket" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Images_Items">
+  <Association Name="FK_Image_Item">
     <End Type="Model.Item" Role="Item" Multiplicity="1" />
     <End Type="Model.Image" Role="Image" Multiplicity="*" />
     <ReferentialConstraint>
@@ -145,19 +127,19 @@
         <PropertyRef Name="id_item" />
       </Principal>
       <Dependent Role="Image">
-        <PropertyRef Name="id_item" />
+        <PropertyRef Name="item" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Sizes_Items">
+  <Association Name="FK_Size_Item">
     <End Type="Model.Item" Role="Item" Multiplicity="1" />
-    <End Type="Model.Size" Role="Size" Multiplicity="0..1" />
+    <End Type="Model.Size" Role="Size" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Item">
         <PropertyRef Name="id_item" />
       </Principal>
       <Dependent Role="Size">
-        <PropertyRef Name="id_item" />
+        <PropertyRef Name="item" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

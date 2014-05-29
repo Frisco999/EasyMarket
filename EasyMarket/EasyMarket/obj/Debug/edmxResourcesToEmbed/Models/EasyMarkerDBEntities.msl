@@ -6,26 +6,27 @@
         <MappingFragment StoreEntitySet="Busket">
           <ScalarProperty Name="number" ColumnName="number" />
           <ScalarProperty Name="item" ColumnName="item" />
-          <ScalarProperty Name="id_busket" ColumnName="id_busket" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Discounts">
-      <EntityTypeMapping TypeName="Model.Discount">
-        <MappingFragment StoreEntitySet="Discount">
-          <ScalarProperty Name="discount1" ColumnName="discount" />
-          <ScalarProperty Name="num_purchases" ColumnName="num_purchases" />
-          <ScalarProperty Name="id_discount" ColumnName="id_discount" />
+          <ScalarProperty Name="Id_Busket" ColumnName="Id_Busket" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Items">
       <EntityTypeMapping TypeName="Model.Item">
-        <MappingFragment StoreEntitySet="Items">
+        <MappingFragment StoreEntitySet="Item">
+          <ScalarProperty Name="num_purchases" ColumnName="num_purchases" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="brand" ColumnName="brand" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="pockets" ColumnName="pockets" />
+          <ScalarProperty Name="clasp" ColumnName="clasp" />
+          <ScalarProperty Name="collar" ColumnName="collar" />
+          <ScalarProperty Name="lenght" ColumnName="lenght" />
+          <ScalarProperty Name="sleeve_length" ColumnName="sleeve_length" />
           <ScalarProperty Name="color" ColumnName="color" />
           <ScalarProperty Name="type" ColumnName="type" />
           <ScalarProperty Name="prise" ColumnName="prise" />
           <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="model" ColumnName="model" />
           <ScalarProperty Name="id_item" ColumnName="id_item" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -56,7 +57,7 @@
     </EntitySetMapping>
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="Model.User">
-        <MappingFragment StoreEntitySet="Users">
+        <MappingFragment StoreEntitySet="User">
           <ScalarProperty Name="rememberme" ColumnName="rememberme" />
           <ScalarProperty Name="num_purchases" ColumnName="num_purchases" />
           <ScalarProperty Name="email" ColumnName="email" />
@@ -71,17 +72,17 @@
     </EntitySetMapping>
     <EntitySetMapping Name="Images">
       <EntityTypeMapping TypeName="Model.Image">
-        <MappingFragment StoreEntitySet="Images">
+        <MappingFragment StoreEntitySet="Image">
           <ScalarProperty Name="image1" ColumnName="image" />
-          <ScalarProperty Name="id_item" ColumnName="id_item" />
+          <ScalarProperty Name="item" ColumnName="item" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Sizes">
       <EntityTypeMapping TypeName="Model.Size">
-        <MappingFragment StoreEntitySet="Sizes">
+        <MappingFragment StoreEntitySet="Size">
           <ScalarProperty Name="size1" ColumnName="size" />
-          <ScalarProperty Name="id_item" ColumnName="id_item" />
+          <ScalarProperty Name="item" ColumnName="item" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

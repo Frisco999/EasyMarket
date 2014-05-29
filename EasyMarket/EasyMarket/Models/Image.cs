@@ -14,9 +14,9 @@ namespace EasyMarket.Models
     
     public partial class Image
     {
-        public int id_item { get; set; }
-        public byte[] image1 { get; set; }
+        public System.Guid item { get; set; }
+        public string image1 { get; set; }
     
-        public virtual Item Item { get; set; }
+        public virtual Item Item1 { get; set; }
     }
 }

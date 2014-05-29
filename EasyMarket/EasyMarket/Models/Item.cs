@@ -16,18 +16,27 @@ namespace EasyMarket.Models
     {
         public Item()
         {
-            this.Buskets = new HashSet<Busket>();
             this.Images = new HashSet<Image>();
+            this.Sizes = new HashSet<Size>();
         }
     
-        public int id_item { get; set; }
+        public System.Guid id_item { get; set; }
+        public string model { get; set; }
         public string name { get; set; }
-        public Nullable<decimal> prise { get; set; }
+        public int prise { get; set; }
         public string type { get; set; }
         public string color { get; set; }
+        public string sleeve_length { get; set; }
+        public string lenght { get; set; }
+        public string collar { get; set; }
+        public string clasp { get; set; }
+        public string pockets { get; set; }
+        public bool image { get; set; }
+        public string brand { get; set; }
+        public string description { get; set; }
+        public string num_purchases { get; set; }
     
-        public virtual ICollection<Busket> Buskets { get; set; }
         public virtual ICollection<Image> Images { get; set; }
-        public virtual Size Size { get; set; }
+        public virtual ICollection<Size> Sizes { get; set; }
     }
 }

@@ -12,13 +12,15 @@ namespace EasyMarket.Controllers
     public class HomeController : Controller
     {
         Easy_MarketEntities db = new Easy_MarketEntities();
-        public ActionResult Index()
+        public ActionResult Index(string error = "", bool modal = false)
         {
+            ViewBag.modal = modal;
             if (Request.Cookies[FormsAuthentication.FormsCookieName] != null) { ViewBag.autorized = true; }
             else
             {
                 ViewBag.Autorized = false;
             }
+            ViewBag.errMessage = error;
             return View();
         }
 
@@ -31,6 +33,7 @@ namespace EasyMarket.Controllers
         [HttpPost]
         public ActionResult Autorization(User user)
         {
+            ViewBag.errMessage = "";
            
             if (user != null)
             {
@@ -40,19 +43,19 @@ namespace EasyMarket.Controllers
                     FormsAuthentication.SetAuthCookie(currentUser.email, user.rememberme);
                     //HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
                     //FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(authCookie.Value);
-                    
-                }  
-                        return RedirectToAction("Index", "Home");
-                 
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+
+                    return RedirectToAction("Index", "Home", new { @error = "Введите email и пароль" });
+                }
+            }  
+            else
+            {
+                return RedirectToAction("Index", "Home", new { @error = "Введите email и пароль" });
+            }        
         }
-            
-
-
-
-    
-            return View();
-        
-}
 
         public ActionResult About()
         {
@@ -63,7 +66,7 @@ namespace EasyMarket.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            
 
             return View();
         }
