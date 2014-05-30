@@ -3,5 +3,80 @@
     ViewBag.Title = "Товары";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="category4"> @ViewBag.Title</div>
-@Html.Partial("GoodsPartial")
+
+<div style="float: left; width: 74%; border: 2px solid lightgray; padding: 10px 10px 10px 10px; margin-right:0px ">
+
+    <div style=" opacity: 0.5; font-family: font4; font-size: 24px; padding: 4px; padding-left: 25px; max-width: 100%; margin-top: 0px; height: 40px; width: 100%; background-color: LightGray; float: left; ">
+        <div style="color: black; opacity: 1.9; ">
+            Категории
+        </div>
+    </div>
+
+    <div style="width: 100%;  margin-top: 50px ">
+        <div style="width: 30%; float: left; border: 1px solid LightGray; ">
+            <a title="Футболки" href="#" style="color: black; font-family: font4; font-size: 20px;text-decoration:none">
+                <img src="~/Content/Images/Goods/futbolka-tom-tailor-dlya-muzhchin-sinego-tsveta-tt1222222058.jpg" alt="Футболки" border="0" style="width: 90%; height:50%; padding-left: 20px" /><br /><br />
+                <p style="text-align:center">Футболки</p>
+            </a>
+        </div>
+        <div style=" width: 30%; float: right; border: 1px solid LightGray">
+            <a title="Рубашки" href="" style="color: black; font-family: font4; font-size: 20px;text-decoration:none">
+                <img src="~/Content/Images/Goods/rubashka-petrol-industries-dlya-muzhchin-krasnogo-tsveta-pi120148.jpg" alt="Рубашки" border="0" style="width: 90%; height:50%; padding-left: 20px" /><br /><br />
+                <p style="text-align:center">Рубашки</p>
+            </a>
+        </div>
+
+        <div style="margin: 0 200px 0 223px;width:30%; border: 1px solid LightGray">
+            <a title="Майки" href="" style="color: black; font-family: font4; font-size: 20px;text-decoration:none">
+                <img src="~/Content/Images/Goods/mayka-petrol-industries-dlya-muzhchin-zelenogo-tsveta-pi12220161.jpg" alt="Майки" border="0" style="width: 90%; height:50%; padding-left: 20px" /><br /><br />
+                <p style="text-align:center">Майки</p>
+            </a>
+        </div>
+    </div>
+
+
+
+    <div style="width: 100%; margin-top: 50px;">
+        <div style=" width: 30%; float: left; border: 1px solid LightGray">
+            <a title="Джемперы" href="" style="color: black; font-family: font4; font-size: 20px;text-decoration:none">
+                <img src="~/Content/Images/Goods/dzhemper-tom-tailor-denim-dlya-muzhchin-sinego-tsveta-tt122147483650.jpg" alt="Джемперы" border="0" style="width: 90%; height:50%; padding-left: 20px" /><br /><br />
+                <p style="text-align:center">Джемперы</p>
+            </a>
+        </div>
+
+
+
+
+        <div style=" width: 30%; float: right; border: 1px solid LightGray">
+            <a title="Толстовки" href="" style="color: black; font-family: font4; font-size: 20px;text-decoration:none">
+                <img src="~/Content/Images/Goods/tolstovka-tom-tailor-dlya-muzhchin-sinego-tsveta-tt122023.jpg" alt="Толстовки" border="0" style="width: 90%; height:50%; padding-left: 20px" /><br /><br />
+                <p style="text-align:center">Толстовки</p>
+            </a>
+        </div>
+
+
+
+        <div style=" margin: 0 200px 0 223px;width:30%; border: 1px solid LightGray">
+            <a title="Поло" href="" style="color: black; font-family: font4; font-size: 20px;text-decoration:none">
+                <img src="~/Content/Images/Goods/muzhskoe-krasnoe-polo-jack-and-jones-jj-12076497-flame-scarlet-melange.jpg" alt="Поло" border="0" style="width: 90%; height:50%; padding-left: 20px" /><br /><br />
+                <p style="text-align:center">Поло</p>
+            </a>
+        </div>
+    </div>
+</div>
+<div style="float: right; width: 25%; ">
+    <div style=" text-shadow:1px 1px 2px #262626; color: white; font-family: font4; font-size: 24px; padding: 4px; padding-left: 25px; max-width: 100%; margin-top: 0px; height: 40px; width: 100%; background-color: #e01918; float: left;">
+        Вход
+    </div>
+
+    <div style="text-align: center; position: relative; height: 200px; border: 1px #f3f2f2; float: left ">
+        <div class="box2">
+            <span class="label1"> Имя&nbspпользователя</span>
+            <input style="width: 200px; height: 30px; font-size: 16px; margin: 5px 0px 10px; " type="text">
+            <span class="label1">Пароль</span>
+            <input style="width: 200px; height: 30px; font-size: 16px; margin: 5px 0px 10px; " type="password">
+            <button class="button2" onmouseover="this.style.background = 'url(/Content/images/button-login1.png)'" onmouseout="    this.style.background = 'url(../Content/images/button-login.png)'" onclick="    /*отправка данных для поиска*/this.form.searchword.focus();" type="submit">Вход</button>
+        </div>
+
+    </div>
+</div>        
