@@ -17,11 +17,7 @@ namespace EasyMarket.Controllers
         Easy_MarketEntities db = new Easy_MarketEntities();
         //
         // GET: /Accounts/
-        public ActionResult Index()
-        {
-            return View();
-        }
-
+        
         public ActionResult Registration(string errorMessage = "")
         {
             ViewBag.error = errorMessage;
@@ -61,6 +57,10 @@ namespace EasyMarket.Controllers
                 return RedirectToAction("Index", "Home", new { @modal = "true" });
             }
             return View(model);
+        }
+        public ActionResult UserPage()
+        {
+            return View();
         }
 	}
 }

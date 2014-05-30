@@ -57,9 +57,30 @@ namespace EasyMarket.Controllers
             }        
         }
 
-        public ActionResult About()
+        public ActionResult Goods()
         {
-            ViewBag.Message = "Your application description page.";
+     
+
+            return View();
+        }
+
+        public ActionResult NewGoods()
+        {
+
+
+            return View();
+        }
+
+        public ActionResult Graphical_Search()
+        {
+
+
+            return View();
+        }
+
+        public ActionResult Delivery()
+        {
+
 
             return View();
         }
@@ -70,5 +91,49 @@ namespace EasyMarket.Controllers
 
             return View();
         }
+
+        public ActionResult Tshirts()
+        {
+
+
+            return View();
+        }
+
+        public ActionResult Singlets()
+        {
+
+
+            return View();
+        }
+
+        public ActionResult Shirts()
+        {
+
+
+            return View();
+        }
+
+        public ActionResult Jumpers()
+        {
+
+
+            return View();
+        }
+
+        public ActionResult Polos()
+        {
+
+
+            return View();
+        }
+
+            public ActionResult Hoodies()
+        {
+            
+
+            return View();
+        }
+
+        
     }
 }

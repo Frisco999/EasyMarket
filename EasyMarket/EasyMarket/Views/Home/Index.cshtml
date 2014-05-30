@@ -65,7 +65,7 @@
     <div class="log_in">
         <div class="box2">
 
-            <h4 style ="word-wrap: break-word; width:200px"> Здравствуйте, @Html.ActionLink(CurrentUser.GetCurrentUserName(Request.Cookies[FormsAuthentication.FormsCookieName]), "Contacts", "Home")!</h4>
+            <h4 style ="word-wrap: break-word; width:200px"> Здравствуйте, @Html.ActionLink(CurrentUser.GetCurrentUserName(Request.Cookies[FormsAuthentication.FormsCookieName]), "UserPage", "Accounts")!</h4>
             <p style="font-size:14px; word-wrap: break-word; width:200px"><i> Ваша скидка составляет: 0%</i></p>
             <p style="text-align:justify; font-size: 14px;  word-wrap: break-word; padding-left:10px; width: 190px"> &nbsp&nbsp&nbsp&nbspПреобретайте больше товаров, чтобы увеличить её!</p>
             <div style="width:200px; padding-left:70px"><div onmouseover="this.style.background = 'url(/Content/images/button-logout1.png)'" onmouseout="    this.style.background = 'url(../Content/images/button-logout.png)'">@Html.ActionLink("Выход", "LogOut", "Home", new { @class="button", @id="b3" })</div></div>
@@ -116,17 +116,21 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 @if(ViewBag.modal==true)
-{ <script> $(document).ready(function () { $('#myModal').modal('show') }) </script>
+{ <script> $(document).ready(function () {
+     $('#myModal').modal('show')
+ }) </script>
 }
 else
 { 
-    <script> $(document).ready(function () {$('#myModal').modal('hide')}) </script>
+<script> $(document).ready(function () {
+     $('#myModal').modal('hide')
+ }) </script>
 }
 <script>
    
-        $('#close').click(function () {
-            $('#myModal').modal('hide')
-        })
+    $('#close').click(function () {
+        $('#myModal').modal('hide')
+    })
 
 
     $(document).ready(function () {
