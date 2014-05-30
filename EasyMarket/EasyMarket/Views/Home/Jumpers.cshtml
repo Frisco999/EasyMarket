@@ -1,8 +1,7 @@
-﻿
+﻿@using EasyMarket.Models;
 @{
-    ViewBag.Title = "Jumpers";
+    ViewBag.Title = "Джемперы";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Джамперы</h2>
-
+<div class="category4"> @ViewBag.Title</div>
+@Html.Partial("GoodsPartial")

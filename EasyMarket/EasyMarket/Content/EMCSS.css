@@ -114,6 +114,19 @@ width:100%;
 background-color: #e01918;
 float:left;
 }
+.category4{
+text-shadow:1px 1px 2px #262626;
+color:white;
+font-family: font4;
+font-size:28px;
+max-width:100%;
+padding-top:5px;
+padding-left:50px;
+height: 50px;
+width:100%;
+background-color: #e01918;
+float:left;
+}
 #logo {
 position: absolute;
 left: 0px;
@@ -378,3 +391,17 @@ padding:10px;
 margin-left:14px; 
 }
 
+.category1{
+text-shadow:1px 1px 2px #bebeba;
+color: #383838;
+font-family: font4;
+font-size:24px;
+padding:4px;
+padding-left:25px;
+max-width:100%;
+margin-top: 35px;
+height: 40px;
+width: 72%;
+background-color: #bebeba;
+float:left;
+}
