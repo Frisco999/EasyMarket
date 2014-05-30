@@ -163,6 +163,7 @@
     <Compile Include="Classes\CurrentUser.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SalesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -226,6 +227,7 @@
     <Content Include="Content\Images\button-registration3.png" />
     <Content Include="Content\Images\button-search.png" />
     <Content Include="Content\Images\button-search1.png" />
+    <Content Include="Content\navbar.css" />
     <Content Include="Scripts\jquery-2.0.3.js" />
     <Content Include="Scripts\jquery-2.0.3.min.js" />
     <Content Include="Scripts\jquery-latest.min.js" />
@@ -300,6 +302,18 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Accounts\Registration.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Goods.cshtml" />
+    <Content Include="Views\Home\NewGoods.cshtml" />
+    <Content Include="Views\Home\Graphical_Search.cshtml" />
+    <Content Include="Views\Home\Delivery.cshtml" />
+    <Content Include="Views\Home\Tshirts.cshtml" />
+    <Content Include="Views\Home\Singlets.cshtml" />
+    <Content Include="Views\Home\Shirts.cshtml" />
+    <Content Include="Views\Home\Jumpers.cshtml" />
+    <Content Include="Views\Home\Polos.cshtml" />
+    <Content Include="Views\Home\Hoodies.cshtml" />
+    <Content Include="Views\Sales\Busket.cshtml" />
+    <Content Include="Views\Accounts\UserPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

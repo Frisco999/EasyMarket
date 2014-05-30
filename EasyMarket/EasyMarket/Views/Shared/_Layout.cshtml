@@ -18,45 +18,39 @@
     @Styles.Render("/Content/smslider.css")
     @Styles.Render("/Content/EMCSS.css")
     @Styles.Render("/Content/bootstrap.css")
-
-
+    <style>
+       .nav navbar-nav > li > a .active {
+            color:red;
+        }
+    </style>
 
 </head>
 <body id="body">
     <div class="main">
         <div id="header">
             <div id="logo">
-                <a href="#"><img src="~/Content/Images/logo.png" /></a>
+                <a href="@Url.Action("Index","Home")"><img src="~/Content/Images/logo.png" /></a>
             </div>
             <div class="cart">
-                <i>Сейчас&nbspв&nbspвашей&nbspкорзине</i><br /><a href="#">0&nbspпокупок</a>
+                <i>Сейчас&nbspв&nbspвашей&nbspкорзине</i><br /><a href="@Url.Action("Busket", "Sales")">0&nbspпокупок</a>
             </div>
            
             <form action="@Url.Action("Search")" method="post">
                 <div class="search1">
                     <input name="searchword" maxlength="40" alt="Search" class="inputbox" type="text" size="40" value="search..." onblur="if(this.value=='') this.value='search...';" onfocus="if(this.value=='search...') this.value='';">
-                    <input type="submit" value="Search" class="button" id="b1" onmouseover="this.style.background = 'url(/Content/images/button-search1.png)'" onmouseout="    this.style.background = 'url(../Content/images/button-search.png)'" onclick="    /*отправка данных для поиска*/this.form.searchword.focus();">
+                    <input type="submit" style="margin:0" value="Search" class="button" id="b1" onmouseover="this.style.background = 'url(/Content/images/button-search1.png)'" onmouseout="    this.style.background = 'url(../Content/images/button-search.png)'" onclick="    /*отправка данных для поиска*/this.form.searchword.focus();">
                 </div>
             </form>
 
             <div id="topmenu">
                 <ul class="menu-nav">
-                    <li  @{Write(pageItem == "Home\\Index" ? "class=active" : "");}>
-                        <a href="@Url.Action("Index")">
-                            Главная
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Товары
-                        </a>
-                    </li>
-                    <li><a href="#">Новинки</a></li>
-                    <li><a href="#">Графический поиск</a></li>
-                    <li><a href="#">Доставка</a></li>
-                    <li @{Write(pageItem == "Home\\Contact" ? "class=active" : "");}><a href="@Url.Action("Contact", "Home")">Контакты</a></li>
+                    <li  @{Write(pageItem == "Home\\Index" ? "class=active" : "");}><a href="@Url.Action("Index","Home")">Главная</a></li>
+                    <li @{Write(pageItem == "Home\\Goods" ? "class=active" : "" );}><a href="@Url.Action("Goods", "Home")"> Товары </a></li>
+                    <li @{Write(pageItem == "Home\\NewGoods" ? "class=active" : "" );}><a href="@Url.Action("NewGoods", "Home")">Новинки</a></li>
+                    <li @{Write(pageItem == "Home\\Graphical_Search" ? "class=active" : "");}><a href="@Url.Action("Graphical_Search", "Home")">Графический поиск</a></li>
+                    <li @{Write(pageItem == "Home\\Delivery" ? "class=active" : "");}><a href="@Url.Action("Delivery", "Home")">Доставка</a></li>
+                    <li @{Write(pageItem == "Home\\Contact" ? "class=active" : "" );}><a href="@Url.Action("Contact", "Home" )">Контакты</a></li>
                 </ul>
-
             </div>
 
 
@@ -65,18 +59,13 @@
             <div class="container-fluid">
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li><a href="#">Футболки</a></li>
-                        <li><a style="padding: 15px 0px;">I</a></li>
-                        <li><a href="#">Майки</a></li>
-                        <li><a style="padding: 15px 0px">I</a></li>
-                        <li><a href="#">Рубашки</a></li>
-                        <li><a style="padding: 15px 0px">I</a></li>
-                        <li><a href="#">Пиджаки</a></li>
-                        <li><a style="padding: 15px 0px">I</a></li>
-                        <li><a href="#">Поло</a></li>
-                        <li><a style="padding: 15px 0px">I</a></li>
-                        <li><a href="#">Жилеты</a></li>
+                    <ul class="nav navbar-nav" style="padding:0px 4%">
+                        <li @{Write(pageItem == "Home\\Tshirts" ? "class=active" : "");} style="padding: 0 7px"><a href="@Url.Action("Tshirts", "Home")">Футболки</a></li>
+                        <li @{Write(pageItem == "Home\\Singlets" ? "class=active" : "");} style="padding: 0 7px"><a href="@Url.Action("Singlets", "Home")">Майки</a></li>
+                        <li @{Write(pageItem == "Home\\Shirts" ? "class=active" : "");} style="padding: 0 7px"><a href="@Url.Action("Shirts", "Home")">Рубашки</a></li>
+                        <li @{Write(pageItem == "Home\\Jumpers" ? "class=active" : "");} style="padding: 0 7px"><a href="@Url.Action("Jumpers", "Home")">Джамперы</a></li>
+                        <li @{Write(pageItem == "Home\\Polos" ? "class=active" : "");} style="padding: 0 7px"><a href="@Url.Action("Polos", "Home")">Поло</a></li>
+                        <li @{Write(pageItem == "Home\\Hoodies" ? "class=active" : "");} style="padding: 0 7px"><a href="@Url.Action("Hoodies", "Home")">Толстовки</a></li>
                     </ul>
                 </div>
                 </div>
@@ -91,7 +80,7 @@
                 <div class="space">
                     <div class="footerText" style="color:#000000">
                         <ul class="menu">
-                            <li><a href="#">Home</a></li>
+                            <li class="active"><a href="#">Home</a></li>
                             <li><a href="#">Online Store</a></li>
                             <li><a href="#">Specials</a></li>
                             <li><a href="#">What's new?</a></li>

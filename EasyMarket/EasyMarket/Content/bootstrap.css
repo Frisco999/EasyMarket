@@ -4530,12 +4530,31 @@ textarea.input-group-sm > .input-group-btn > .btn {
   background-color: transparent;
 }
 
+.navbar-inverse .navbar-nav > .active,
+.navbar-inverse .navbar-nav > .active:hover,
+.navbar-inverse .navbar-nav > .active:focus {
+  color: #ffffff;
+  background-color: #171717;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: #a5a5a5;
+  text-shadow: 1px 1px 2px #4b4b4b;
+  cursor:default;
+}
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,
 .navbar-inverse .navbar-nav > .active > a:focus {
   color: #ffffff;
-  background-color: #080808;
+  background-color: #171717;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: #a5a5a5;
+  text-shadow: 1px 1px 2px #4b4b4b;
+  cursor:default;
 }
+  /*color: red;
+  text-shadow: none;
+  cursor:default;*/
 
 .navbar-inverse .navbar-nav > .disabled > a,
 .navbar-inverse .navbar-nav > .disabled > a:hover,
