@@ -1,0 +1,15 @@
+﻿@using EasyMarket.Models;
+
+<div>
+@model List<EasyMarket.Models.ItemInfo>
+@foreach (ItemInfo item in Model)
+{
+    @item.Item.name
+
+
+    foreach(Size size in item.Sizes){
+  
+    }
+}
+
+</div>

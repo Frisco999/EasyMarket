@@ -160,7 +160,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Classes\CurrentUser.cs" />
+    <Compile Include="Models\CurrentUser.cs" />
+    <Compile Include="Models\ItemInfo.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SalesController.cs" />
@@ -227,6 +228,8 @@
     <Content Include="Content\Images\button-registration3.png" />
     <Content Include="Content\Images\button-search.png" />
     <Content Include="Content\Images\button-search1.png" />
+    <Content Include="Content\Images\Items\dzhemper-japan-rags-dlya-muzhchin-sinego-tsveta-jr122220140.jpg" />
+    <Content Include="Content\Images\Items\futbolka-mustang-jeans-dlya-muzhchin-belogo-tsveta-mu120417.jpg" />
     <Content Include="Content\navbar.css" />
     <Content Include="Scripts\jquery-2.0.3.js" />
     <Content Include="Scripts\jquery-2.0.3.min.js" />
@@ -314,9 +317,11 @@
     <Content Include="Views\Home\Hoodies.cshtml" />
     <Content Include="Views\Sales\Busket.cshtml" />
     <Content Include="Views\Accounts\UserPage.cshtml" />
+    <Content Include="Views\Home\GoodsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Classes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
