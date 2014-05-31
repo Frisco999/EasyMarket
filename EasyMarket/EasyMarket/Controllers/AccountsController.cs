@@ -9,6 +9,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using EasyMarket.Models;
+using EasyMarket.Classes;
+using System.Web.Security;
+using System.Web.UI;
 
 namespace EasyMarket.Controllers
 {
@@ -61,6 +64,37 @@ namespace EasyMarket.Controllers
         public ActionResult UserPage()
         {
             return View();
+        }
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        public ActionResult Autorization(User user)
+        {
+            if (user != null)
+            {
+                User currentUser = db.Users.FirstOrDefault(x => x.email == user.email && x.password == user.password);
+                if (currentUser != null)
+                {
+                    FormsAuthentication.SetAuthCookie(currentUser.email, user.rememberme);
+                    //HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+                    //FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(authCookie.Value);
+                    string currentUserName = CurrentUser.GetCurrentUserName(Request.Cookies[FormsAuthentication.FormsCookieName]);
+                    return Json(currentUserName);
+                }
+                else
+                {
+                    
+                    return null;
+                }
+            }
+            else
+            {
+                return null;
+            }
         }
 	}
 }
