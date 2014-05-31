@@ -7,25 +7,21 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="~/Scripts/jquery-2.0.3.min.js"></script>
+    <script src="/Scripts/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="~/scripts/jquery.smslider.min.js"></script>
     <script type="text/javascript" src="~/scripts/jquery.smslider.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/jquery-ui-1.10.3.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="/Scripts/jquery-ui-1.10.3.min.js"></script>
     <title>@ViewBag.Title – приложение ASP.NET</title>
     @Styles.Render("/Content/smslider.css")
     @Styles.Render("/Content/EMCSS.css")
     @Styles.Render("/Content/bootstrap.css")
-    <style>
-       .nav navbar-nav > li > a .active {
-            color:red;
-        }
-    </style>
 
 </head>
 <body id="body">
+    
+    <a href="#" class="scrollup">Наверх</a>
     <div class="main">
         <div id="header">
             <div id="logo">
@@ -38,7 +34,7 @@
             <form action="@Url.Action("Search")" method="post">
                 <div class="search1">
                     <input name="searchword" maxlength="40" alt="Search" class="inputbox" type="text" size="40" value="search..." onblur="if(this.value=='') this.value='search...';" onfocus="if(this.value=='search...') this.value='';">
-                    <input type="submit" style="margin:0" value="Search" class="button" id="b1" onmouseover="this.style.background = 'url(/Content/images/button-search1.png)'" onmouseout="    this.style.background = 'url(../Content/images/button-search.png)'" onclick="    /*отправка данных для поиска*/this.form.searchword.focus();">
+                    <input type="submit" style="margin:0" value="Search" class="button" id="buttonSearch" onmouseover="this.style.background = 'url(/Content/images/button-search1.png)'" onmouseout="    this.style.background = 'url(../Content/images/button-search.png)'" onclick="    /*отправка данных для поиска*/this.form.searchword.focus();">
                 </div>
             </form>
 
@@ -98,3 +94,21 @@
     
 </body>
 </html>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 100) {
+                $('.scrollup').fadeIn();
+            } else {
+                $('.scrollup').fadeOut();
+            }
+        });
+
+        $('.scrollup').click(function () {
+            $("html, body").animate({ scrollTop: 0 }, 600);
+            return false;
+        });
+
+    });
+</script>

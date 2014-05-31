@@ -5,11 +5,12 @@
 @foreach (ItemInfo item in Model)
 {
     @item.Item.name
-
-
-    foreach(Size size in item.Sizes){
-  
+    <img src="@item.Images.FirstOrDefault().image1" />
+    foreach (Size size in item.Sizes)
+    { 
+        @size.size1
     }
+
 }
 
 </div>

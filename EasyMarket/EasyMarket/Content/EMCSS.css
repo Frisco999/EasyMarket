@@ -28,18 +28,18 @@ padding: 4px 5px 4px 5px;
 margin: 20px;
 vertical-align: top;
 }
-.label1{
+.labelAutorization{
 font-family: font1;
 font-size:16px;
 text-align:center;
 padding:10px;
 }
-.box1{
+.SliderBox{
     padding: 0px;
     margin: 10px 0;
     height: 415px;
 }
-.box2{
+.userBox{
    margin-top:20px;
    padding-left:7px;
     width:26%;
@@ -73,7 +73,7 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, 
 padding: 0px 0px 0px 0px;
 margin: 0px 0px 0px 0px;
 }
-.category1{
+.standartCategory{
 text-shadow:1px 1px 2px #bebeba;
 color: #383838;
 font-family: font4;
@@ -87,22 +87,8 @@ width: 72%;
 background-color: #bebeba;
 float:left;
 }
-.category2{
-text-shadow:1px 1px 2px #262626;
-color:white;
-font-family: font4;
-font-size:24px;
-padding:4px;
-padding-left:25px;
-margin-left:14px; 
-max-width:100%;
-margin-top: 35px;
-height: 40px;
-width: 26%;
-background-color: #e01918;
-float:left;
-}
-.category3{
+
+.categoryRegistration{
 text-shadow:1px 1px 2px #262626;
 color:white;
 font-family: font4;
@@ -114,7 +100,7 @@ width:100%;
 background-color: #e01918;
 float:left;
 }
-.category4{
+.categoryGoodsPage{
 text-shadow:1px 1px 2px #262626;
 color:white;
 font-family: font4;
@@ -126,6 +112,21 @@ height: 50px;
 width:100%;
 background-color: #e01918;
 float:left;
+}
+.categoryGoods{
+text-shadow:1px 1px 1px #9C9C9C;
+color: #383838;
+font-family: font4;
+font-size: 24px;
+padding: 4px;
+padding-left: 25px; 
+max-width: 100%; 
+margin-top: 0px; 
+height: 40px; 
+width: 100%; 
+background-color: #d3d3d3;
+float: left;
+position:relative;
 }
 #logo {
 position: absolute;
@@ -233,38 +234,39 @@ padding: 0 0 2px 0;
 margin: 4px 0px 0 1px;
 }
 
-#b1 {
+#buttonSearch {
 background: url(/Content/images/button-search.png) left top repeat-x;
 }
 
-#b2 {
+#bLogin {
 background: url(/Content/images/button-login.png) left top repeat-x;
+margin-bottom:-10px;
 }
-#b3 {
+#buttonLogOut {
 background: url(/Content/images/button-logout.png) left top repeat-x;
 }
-#b3:hover {
+#buttonLogOut:hover {
 background: url(/Content/images/button-logout1.png) left top repeat-x;
 }
-#b4 {
+#buttonRegister {
 background: url(/Content/images/button-registration.png) left top repeat-x;
 width:120px;
 }
-#b4:hover {
+#buttonRegister:hover {
 background: url(/Content/images/button-registration1.png) left top repeat-x;
 }
-#b5 {
+#buttonRegistration {
 background: url(/Content/images/button-registration2.png) left top repeat-x;
 width:180px;
 }
-#b5:hover {
+#buttonRegistration:hover {
 background: url(/Content/images/button-registration3.png) left top repeat-x;
 }
-#b6 {
+#buttonOK {
 background: url(/Content/images/button-ok.png) left top repeat-x;
 width:80px;
 }
-#b6:hover {
+#buttonOK:hover {
 background: url(/Content/images/button-ok1.png) left top repeat-x;
 }
 
@@ -379,29 +381,39 @@ padding: 0px 25px 0 0px;
 text-transform: none;
 margin: 0 0 0 0;
 }
+
+#userLoggedOut{
+ 
+}
+
+.userCategory{
+text-shadow:1px 1px 2px #262626;
+color:white;
+font-family: font4;
+font-size:24px;
+background-color: #e01918;
+margin:-10px;
+height:40px;
+padding-top:4px;
+}
 .log_in{
 text-align:center;
-position: relative;
 max-width:100%;
 height: 350px;
-width: 26%;
+width: 230px;
 border: 1px #f3f2f2;
 float:left;
 padding:10px;
 margin-left:14px; 
 }
-
-.category1{
-text-shadow:1px 1px 2px #bebeba;
-color: #383838;
-font-family: font4;
-font-size:24px;
-padding:4px;
-padding-left:25px;
-max-width:100%;
-margin-top: 35px;
-height: 40px;
-width: 72%;
-background-color: #bebeba;
-float:left;
+.scrollup{
+width:40px;
+height:40px;
+opacity:0.4;
+position:fixed;
+bottom:50px;
+right:100px;
+display:none;
+text-indent:-9999px;
+background:  url('/Content/Images/icon_top.png')
 }

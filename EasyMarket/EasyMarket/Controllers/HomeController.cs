@@ -17,7 +17,7 @@ namespace EasyMarket.Controllers
         public ActionResult Index(string error = "", bool modal = false)
         {
             ViewBag.modal = modal;
-            if (Request.Cookies[FormsAuthentication.FormsCookieName] != null) { ViewBag.autorized = true; }
+            if (Request.Cookies[FormsAuthentication.FormsCookieName] != null) { ViewBag.Autorized = true; }
             else
             {
                 ViewBag.Autorized = false;
@@ -26,41 +26,13 @@ namespace EasyMarket.Controllers
             return View();
         }
 
-        public ActionResult LogOut()
-        {
-            FormsAuthentication.SignOut();
-            return RedirectToAction("Index", "Home");
-        }
-
-        [HttpPost]
-        public ActionResult Autorization(User user)
-        {
-            ViewBag.errMessage = "";
-           
-            if (user != null)
-            {
-                User currentUser = db.Users.FirstOrDefault(x => x.email == user.email && x.password == user.password);
-                if (currentUser != null)
-                {
-                    FormsAuthentication.SetAuthCookie(currentUser.email, user.rememberme);
-                    //HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
-                    //FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(authCookie.Value);
-                    return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-
-                    return RedirectToAction("Index", "Home", new { @error = "Введите email и пароль" });
-                }
-            }  
-            else
-            {
-                return RedirectToAction("Index", "Home", new { @error = "Введите email и пароль" });
-            }        
-        }
-
         public ActionResult Goods()
         {
+            if (Request.Cookies[FormsAuthentication.FormsCookieName] != null) { ViewBag.Autorized = true; }
+            else
+            {
+                ViewBag.Autorized = false;
+            }
             List<ItemInfo> itemsInfo = new List<ItemInfo>();
             List<Item> items = new List<Item>(db.Items);
             foreach (Item item in items)
