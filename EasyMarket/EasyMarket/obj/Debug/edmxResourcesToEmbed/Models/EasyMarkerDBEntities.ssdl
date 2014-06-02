@@ -5,7 +5,14 @@
       <PropertyRef Name="Id_Busket" />
     </Key>
     <Property Name="Id_Busket" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="item" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BusketItemsAsgmt">
+    <Key>
+      <PropertyRef Name="id_Asgmt" />
+    </Key>
+    <Property Name="id_Asgmt" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="id_Item" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="id_Busket" Type="uniqueidentifier" Nullable="false" />
     <Property Name="number" Type="int" Nullable="false" />
   </EntityType>
   <!--Ошибки, обнаруженные при создании:
@@ -83,7 +90,32 @@
     <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="num_purchases" Type="int" />
     <Property Name="rememberme" Type="bit" Nullable="false" />
+    <Property Name="busket" Type="uniqueidentifier" />
   </EntityType>
+  <Association Name="FK_BusketItemsAsgmt_Busket">
+    <End Role="Busket" Type="Self.Busket" Multiplicity="1" />
+    <End Role="BusketItemsAsgmt" Type="Self.BusketItemsAsgmt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Busket">
+        <PropertyRef Name="Id_Busket" />
+      </Principal>
+      <Dependent Role="BusketItemsAsgmt">
+        <PropertyRef Name="id_Busket" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BusketItemsAsgmt_Item">
+    <End Role="Item" Type="Self.Item" Multiplicity="1" />
+    <End Role="BusketItemsAsgmt" Type="Self.BusketItemsAsgmt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="id_item" />
+      </Principal>
+      <Dependent Role="BusketItemsAsgmt">
+        <PropertyRef Name="id_Item" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Image_Item">
     <End Role="Item" Type="Self.Item" Multiplicity="1" />
     <End Role="Image" Type="Self.Image" Multiplicity="*" />
@@ -120,8 +152,21 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_User_Busket">
+    <End Role="Busket" Type="Self.Busket" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Busket">
+        <PropertyRef Name="Id_Busket" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="busket" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="Хранилище ModelContainer">
     <EntitySet Name="Busket" EntityType="Self.Busket" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BusketItemsAsgmt" EntityType="Self.BusketItemsAsgmt" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -138,6 +183,14 @@
     [Size].[size] AS [size]
     FROM [dbo].[Size] AS [Size]</DefiningQuery>
     </EntitySet>
+    <AssociationSet Name="FK_BusketItemsAsgmt_Busket" Association="Self.FK_BusketItemsAsgmt_Busket">
+      <End Role="Busket" EntitySet="Busket" />
+      <End Role="BusketItemsAsgmt" EntitySet="BusketItemsAsgmt" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BusketItemsAsgmt_Item" Association="Self.FK_BusketItemsAsgmt_Item">
+      <End Role="Item" EntitySet="Item" />
+      <End Role="BusketItemsAsgmt" EntitySet="BusketItemsAsgmt" />
+    </AssociationSet>
     <AssociationSet Name="FK_Image_Item" Association="Self.FK_Image_Item">
       <End Role="Item" EntitySet="Item" />
       <End Role="Image" EntitySet="Image" />
@@ -149,6 +202,10 @@
     <AssociationSet Name="FK_Size_Item" Association="Self.FK_Size_Item">
       <End Role="Item" EntitySet="Item" />
       <End Role="Size" EntitySet="Size" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Busket" Association="Self.FK_User_Busket">
+      <End Role="Busket" EntitySet="Busket" />
+      <End Role="User" EntitySet="User" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

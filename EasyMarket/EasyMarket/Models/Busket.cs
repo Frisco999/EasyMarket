@@ -16,13 +16,15 @@ namespace EasyMarket.Models
     {
         public Busket()
         {
+            this.BusketItemsAsgmts = new HashSet<BusketItemsAsgmt>();
             this.Orders = new HashSet<Order>();
+            this.Users = new HashSet<User>();
         }
     
         public System.Guid Id_Busket { get; set; }
-        public int item { get; set; }
-        public int number { get; set; }
     
+        public virtual ICollection<BusketItemsAsgmt> BusketItemsAsgmts { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

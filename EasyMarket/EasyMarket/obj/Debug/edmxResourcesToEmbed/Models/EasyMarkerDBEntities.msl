@@ -4,9 +4,17 @@
     <EntitySetMapping Name="Buskets">
       <EntityTypeMapping TypeName="Model.Busket">
         <MappingFragment StoreEntitySet="Busket">
-          <ScalarProperty Name="number" ColumnName="number" />
-          <ScalarProperty Name="item" ColumnName="item" />
           <ScalarProperty Name="Id_Busket" ColumnName="Id_Busket" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BusketItemsAsgmts">
+      <EntityTypeMapping TypeName="Model.BusketItemsAsgmt">
+        <MappingFragment StoreEntitySet="BusketItemsAsgmt">
+          <ScalarProperty Name="number" ColumnName="number" />
+          <ScalarProperty Name="id_Busket" ColumnName="id_Busket" />
+          <ScalarProperty Name="id_Item" ColumnName="id_Item" />
+          <ScalarProperty Name="id_Asgmt" ColumnName="id_Asgmt" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -58,6 +66,7 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="Model.User">
         <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="busket" ColumnName="busket" />
           <ScalarProperty Name="rememberme" ColumnName="rememberme" />
           <ScalarProperty Name="num_purchases" ColumnName="num_purchases" />
           <ScalarProperty Name="email" ColumnName="email" />

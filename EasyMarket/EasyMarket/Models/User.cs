@@ -23,5 +23,8 @@ namespace EasyMarket.Models
         public string email { get; set; }
         public Nullable<int> num_purchases { get; set; }
         public bool rememberme { get; set; }
+        public Nullable<System.Guid> busket { get; set; }
+    
+        public virtual Busket Busket1 { get; set; }
     }
 }

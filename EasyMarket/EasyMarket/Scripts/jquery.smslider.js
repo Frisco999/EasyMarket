@@ -9,12 +9,12 @@
   $.fn.smSlider1 = function(options) {
   var defaults = {
         start             : 0,
-        transition        : 'animate',
+        transition        : 'fader',
         activeClass       : 'active',
         autoArr           : false,
         innerBlock        : 'sm_slider-inner',
-        prev              : 'sm_prev',
-        next              : 'sm_next',
+        prev              : 'sm_prev1',
+        next              : 'sm_next1',
         children          : 'sm_slide',
         pagination        : true,
         typeCtrl          : 'dots',
@@ -102,6 +102,8 @@
             return false;
         }
     };
+
+
     var $smSlider      = $(this);
     var smSlideWidth   = $smSlider.width();
     var smSlideHeight  = $smSlider.height();

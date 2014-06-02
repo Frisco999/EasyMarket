@@ -51,44 +51,6 @@
     </div>
     </div>
     @Html.Partial("AutorizationPartial")
-    @*@if (ViewBag.Autorized)
-        {
-            <div class="log_in">
-                <div class="userBox">
-
-                    <h4 style ="word-wrap: break-word; width:200px"> Здравствуйте, @Html.ActionLink(CurrentUser.GetCurrentUserName(Request.Cookies[FormsAuthentication.FormsCookieName]), "UserPage", "Accounts")!</h4>
-                    <p style="font-size:14px; word-wrap: break-word; width:200px"><i> Ваша скидка составляет: 0%</i></p>
-                    <p style="text-align:justify; font-size: 14px;  word-wrap: break-word; padding-left:10px; width: 190px"> &nbsp&nbsp&nbsp&nbspПреобретайте больше товаров, чтобы увеличить её!</p>
-                    <div style="width:200px; padding-left:70px"><div onmouseover="this.style.background = 'url(/Content/images/button-logout1.png)'" onmouseout="    this.style.background = 'url(../Content/images/button-logout.png)'">@Html.ActionLink("Выход", "LogOut", "Home", new { @class="button", @id="b3" })</div></div>
-
-
-                </div>
-            </div>
-        }*@
-
-    @*@if (!ViewBag.Autorized){
-        {
-            <div class="log_in">
-                <div class="loginBox">
-
-                                @using (Html.BeginForm("Autorization", "Home"))
-                    {
-                                <a name="autorization"></a>
-
-                                @Html.LabelFor(models => models.email, new { @class = "label1" })
-                                @Html.TextBoxFor(models => models.email, new { @Style = "width: 200px; height: 30px; font-size: 16px; margin: -10px 0px 5px; !important;" })
-                                @Html.LabelFor(models => models.password, new { @class = "label1" })
-                                @Html.PasswordFor(models => models.password, new { @Style = "width: 200px; height: 30px; font-size: 16px; margin: -10px 0px 10px; !important" })
-                                <p style="color: #a92b2b; width: 200px; padding:0px; margin:0px !important ">@ViewBag.errMessage </p>
-                                <input name="login" class="button" id="bLogin" style="float:left; display:inline !important" onmouseover="this.style.background = 'url(/Content/images/button-login1.png)'" onmouseout="    this.style.background = 'url(../Content/images/button-login.png)'" onclick="    /*отправка данных для поиска*/this.form.searchword.focus();" type="submit">
-                                @Html.CheckBoxFor(models => models.rememberme, new { @style = "display:inline; float:left; width: 15px; margin-left:5px; margin-top:9px !important" })
-                                @Html.Label("Запомнить", new { @style = "display:inline; float:left; width: 20px; margin-left:5px; margin-top:8px !important" })
-                                @Html.ActionLink("Регистрация", "Registration", "Accounts", null, new { @class="button", @id="buttonRegistration" })
-                                }
-        </div>
-            </div>
-        }
-        }*@
 
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" style="width:400px; margin-top:170px">

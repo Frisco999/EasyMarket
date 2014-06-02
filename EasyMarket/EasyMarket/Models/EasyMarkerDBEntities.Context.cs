@@ -26,6 +26,7 @@ namespace EasyMarket.Models
         }
     
         public virtual DbSet<Busket> Buskets { get; set; }
+        public virtual DbSet<BusketItemsAsgmt> BusketItemsAsgmts { get; set; }
         public virtual DbSet<Item> Items { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }

@@ -49,6 +49,19 @@
 	z-index: 999;
 }
 
+.sm_prev1, .sm_next1 {
+	background: url(/Content/Images/sm_arr.png) no-repeat;
+	cursor: pointer;
+	display: block;
+	font-style: normal;
+	height: 64px;
+	margin: -31px 0 0 0;
+	opacity: .3;
+	position: absolute;
+	top: 50%;
+	width: 60px;
+	z-index: 999;
+}
 .sm_prev {
 	background-position: 20px -50px;
 	left: 0;
@@ -58,7 +71,15 @@
 	background-position: -40px -50px;
 	right: 0;
 }
+.sm_prev1 {
+	background-position: 20px -50px;
+	left: 0;
+}  
 
+.sm_next1 {
+	background-position: -40px -50px;
+	right: 0;
+}
 .sm_prev:hover {
 	background-position: 20px 14px;
 	opacity: 1;

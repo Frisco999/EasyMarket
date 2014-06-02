@@ -16,6 +16,7 @@ namespace EasyMarket.Models
     {
         public Item()
         {
+            this.BusketItemsAsgmts = new HashSet<BusketItemsAsgmt>();
             this.Images = new HashSet<Image>();
             this.Sizes = new HashSet<Size>();
         }
@@ -36,6 +37,7 @@ namespace EasyMarket.Models
         public string description { get; set; }
         public string num_purchases { get; set; }
     
+        public virtual ICollection<BusketItemsAsgmt> BusketItemsAsgmts { get; set; }
         public virtual ICollection<Image> Images { get; set; }
         public virtual ICollection<Size> Sizes { get; set; }
     }
