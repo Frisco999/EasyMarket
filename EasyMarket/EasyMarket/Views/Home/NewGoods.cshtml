@@ -2,7 +2,22 @@
     ViewBag.Title = "NewGoods";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div style="float: left; width: 72%; border-top: none; border: 2px solid #e8e8e8; margin: auto;  ">
 
-<h2>Новинки</h2>
+    <div class="categoryGoods">Новинки</div>
 
-@Html.Partial("GoodsPartial")
+    @Html.Partial("GoodsPartial")
+
+</div>
+<div style="float: right; width: 25%; ">
+    <div style="border:1px  solid#eaeaea">
+        <div style=" text-shadow:1px 1px 2px #262626; color: white; font-family: font4; font-size: 20px; padding: 2px; padding-left: 25px; max-width: 100%; margin-top: 0px;padding-top:5px; padding-left:40px; height: 40px; width: 100%; background-color: #e01918; float: left;">
+            Задайте параметры
+        </div>
+        @Html.Partial("FilterPartial")
+    </div>
+    </br>
+    <div style="float: right;  ">
+        @Html.Partial("AutorizationPartial")
+    </div>
+</div>

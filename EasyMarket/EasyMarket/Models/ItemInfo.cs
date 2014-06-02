@@ -13,6 +13,7 @@ namespace EasyMarket.Models
     {
         public Item Item { get; set; }
         public List<Image> Images { get; set; }
+        //public Item prise { get; set; }
         public List<Size> Sizes { get; set; }
     }
 }

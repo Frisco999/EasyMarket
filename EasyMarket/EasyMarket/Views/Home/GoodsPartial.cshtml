@@ -1,16 +1,36 @@
 ﻿@using EasyMarket.Models;
 
 <div>
-@model List<EasyMarket.Models.ItemInfo>
-@foreach (ItemInfo item in Model)
+    @model List<EasyMarket.Models.ItemInfo>
+   
+        @foreach (ItemInfo item in Model)
 {
-    @item.Item.name
-    <img src="@item.Images.FirstOrDefault().image1" />
-    foreach (Size size in item.Sizes)
-    { 
-        @size.size1
-    }
+<link rel="stylesheet" type="text/css" href="/Content/GoodsPartial.css"/>
+    <div class="boxgrid captionfull" style="width: 31%; height: 300px; float: left; margin-top:10px; margin-right:7px; margin-left:7px; border: 1px solid lightgray; text-align: center">
+        <a href="#">
+            <img src="@item.Images.FirstOrDefault().image1" style="width: 100%; height: 100%; padding-left: 0px;" />
+        </a>
+        <div class="cover boxcaption">
+            <a href="#" style="color: black; font-family: font4; font-size: 16px; text-decoration: none; ">@item.Item.name</a>
+            <b style="color: red; font-family: font4; font-size: 26px; text-decoration: none; text-align: left; float: left;margin-right:20px;margin-left:25px">@item.Item.prise грн.</b>
+            <div style="width:100%">
+                <a class="a_demo_four"></a>
+            </div>
+        </div>
+    </div>
 
 }
+    </div>
+  <script type="text/javascript">
+    $(document).ready(function () {
+        //Full Caption Sliding (Hidden to Visible)
+        //Vertical Sliding
 
-</div>
+        $('.boxgrid.captionfull').hover(function () {
+            $(".cover", this).stop().animate({ top: '230px' }, { queue: false, duration: 160 });
+        }, function () {
+            $(".cover", this).stop().animate({ top: '330px' }, { queue: false, duration: 160 });
+        });
+
+    });
+</script> 

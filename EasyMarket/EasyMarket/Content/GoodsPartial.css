@@ -1,0 +1,190 @@
+﻿
+    * {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    body {
+        background: #D5DEE7;
+    }
+
+    a {
+        color: #C8DCE5;
+    }
+
+    h3 {
+        margin: 10px 10px 0 10px;
+        color: #FFF;
+        font: 18pt Arial, sans-serif;
+        letter-spacing: -1px;
+        font-weight: bold;
+    }
+
+    .boxgrid {
+        width: 325px;
+        height: 20px;
+        margin: 10px;
+        float: left;
+        background: #161613;
+        border: solid 2px #8399AF;
+        overflow: hidden;
+        position: relative;
+    }
+
+        .boxgrid img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 0;
+        }
+
+        .boxgrid p {
+            padding: 0 10px;
+            color: #afafaf;
+            font-weight: bold;
+            font: 10pt "Lucida Grande", Arial, sans-serif;
+        }
+
+    .boxcaption {
+        float: left;
+        position: absolute;
+        background: #CCCCCC;
+        height: 70px;
+        width: 100%;
+        opacity: .8;
+        /* For IE 5-7 */
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+        /* For IE 8 */
+        -MS-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    }
+
+    .captionfull .boxcaption {
+        top: 300px;
+        left: 0;
+    }
+
+    .caption .boxcaption {
+        top: 260px;
+        left: 0;
+    }
+
+
+/* General button style (reset) */
+.btn {
+	border: none;
+	font-family: inherit;
+	font-size: 12px;
+	color: red;
+	background: none;
+	cursor: pointer;
+	
+	display: inline-block;
+	
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 700;
+	outline: none;
+	position: relative;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.btn:after {
+	
+   
+    color:red;
+	position: absolute;
+	z-index: -1;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.btn:before{
+
+content: url(/Content/Images/cart.png);
+
+}
+
+/* Button 2 */
+.btn-2 {
+	background: red;
+	color: #fff;
+	box-shadow: 0 6px #ab3c3c;
+    width:100px;
+	-webkit-transition: none;
+	-moz-transition: none;
+	transition: none;
+}
+
+/* Button 2a */
+.btn-2a {
+	border-radius: 0 0 1px 1px;
+}
+
+/*.btn-2a:hover {
+	
+}*/
+.btn-2a:visited {
+	border:0px;
+	box-shadow: 0 4px #ab3c3c;
+	top: 2px;
+}
+
+
+.btn-2a:active {
+	box-shadow: 0 0 #ab3c3c;
+	top: 6px;
+}
+
+
+
+
+
+.a_demo_four {
+    background-color:red;
+    font-family: 'Open Sans', sans-serif;
+    font-size:12px;
+    text-decoration:none;
+    color:#fff;
+    position:absolute;
+    right:24px;
+    top:20px;
+    height:30px;
+    width:39px;
+    background-image: linear-gradient(bottom, rgb(62,51,46) 0%, rgb(101,86,78) 100%);
+    border-radius: 5px;
+    box-shadow: inset 0px 1px 0px #9e8d84, 0px 5px 0px 0px #322620, 0px 10px 5px #999;
+}
+ 
+.a_demo_four:active {
+    top:23px;
+    background-image: linear-gradient(bottom, rgb(62,51,46) 100%, rgb(101,86,78) 0%);
+    box-shadow: inset 0px 1px 0px #9e8d84, 0px 2px 0px 0px #322620, 0px 5px 3px #999;
+}
+ 
+.a_demo_four::before {
+    background-color:red;
+    background-image:url(../Content/Images/cart.png);
+    background-size:20px;
+    background-repeat:no-repeat;
+    background-position:center;
+    content:"";
+    width:25px;
+    height:25px;
+    position:absolute;
+    right:6px;
+    top:61%;
+    
+    margin-top:-15px;
+    border-radius: 50%;
+    box-shadow: inset 0px 1px 0px #19120f, 0px 1px 0px #827066;
+}
+ 
+.a_demo_four:active::before {
+    top:50%;
+    margin-top:-16px;
+    box-shadow: inset 0px 1px 0px #827066, 0px 3px 0px #19120f, 0px 6px 3px #382e29;
+}
+
