@@ -29,7 +29,7 @@ namespace EasyMarket.Models
         public string confirmPassword { get; set; }
 
         [Required]
-        [Display(Name = "Адресс")]
+        [Display(Name = "Адрес")]
         public string address { get; set; }
 
         [Required]

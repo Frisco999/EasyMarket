@@ -16,8 +16,11 @@ namespace EasyMarket.Controllers
         Easy_MarketEntities db = new Easy_MarketEntities();
         public ActionResult Index(string error = "", bool modal = false)
         {
+            ViewBag.price = CurrentUser.GetCurrentUserBusketItemsPrice(Request.Cookies[FormsAuthentication.FormsCookieName]);
+            ViewBag.number = CurrentUser.GetCurrentUserBusketItemsNumber(Request.Cookies[FormsAuthentication.FormsCookieName]);
+            ViewBag.name = CurrentUser.GetCurrentUserName(Request.Cookies[FormsAuthentication.FormsCookieName]);
             ViewBag.modal = modal;
-            if (Request.Cookies[FormsAuthentication.FormsCookieName] != null) { ViewBag.Autorized = true; }
+            if (CurrentUser.GetCurrentUserEmail(Request.Cookies[FormsAuthentication.FormsCookieName]) != null) { ViewBag.Autorized = true; }
             else
             {
                 ViewBag.Autorized = false;
@@ -28,7 +31,10 @@ namespace EasyMarket.Controllers
 
         public ActionResult Goods()
         {
-            if (Request.Cookies[FormsAuthentication.FormsCookieName] != null) { ViewBag.Autorized = true; }
+            ViewBag.name = CurrentUser.GetCurrentUserName(Request.Cookies[FormsAuthentication.FormsCookieName]);
+            ViewBag.price = CurrentUser.GetCurrentUserBusketItemsPrice(Request.Cookies[FormsAuthentication.FormsCookieName]);
+            ViewBag.number = CurrentUser.GetCurrentUserBusketItemsNumber(Request.Cookies[FormsAuthentication.FormsCookieName]);
+            if (CurrentUser.GetCurrentUserEmail(Request.Cookies[FormsAuthentication.FormsCookieName]) != null) { ViewBag.Autorized = true; }
             else
             {
                 ViewBag.Autorized = false;
@@ -46,9 +52,11 @@ namespace EasyMarket.Controllers
 
         }
 
-        public ActionResult NewGoods()
+       public ActionResult NewGoods()
         {
-
+            ViewBag.name = CurrentUser.GetCurrentUserName(Request.Cookies[FormsAuthentication.FormsCookieName]);
+            ViewBag.price = CurrentUser.GetCurrentUserBusketItemsPrice(Request.Cookies[FormsAuthentication.FormsCookieName]);
+            ViewBag.number = CurrentUser.GetCurrentUserBusketItemsNumber(Request.Cookies[FormsAuthentication.FormsCookieName]);
             List<ItemInfo> itemsInfo = new List<ItemInfo>();
             List<Item> items = new List<Item>(db.Items);
             items = items.Skip(items.Count()-3).ToList();
@@ -62,8 +70,11 @@ namespace EasyMarket.Controllers
             return View(itemsInfo);
         }
 
-        public ActionResult Graphical_Search()
+        public ActionResult GraphicalSearch()
         {
+            ViewBag.name = CurrentUser.GetCurrentUserName(Request.Cookies[FormsAuthentication.FormsCookieName]);
+            ViewBag.price = CurrentUser.GetCurrentUserBusketItemsPrice(Request.Cookies[FormsAuthentication.FormsCookieName]);
+            ViewBag.number = CurrentUser.GetCurrentUserBusketItemsNumber(Request.Cookies[FormsAuthentication.FormsCookieName]);
 
 
             return View();
@@ -71,6 +82,9 @@ namespace EasyMarket.Controllers
 
         public ActionResult Delivery()
         {
+            ViewBag.name = CurrentUser.GetCurrentUserName(Request.Cookies[FormsAuthentication.FormsCookieName]);
+            ViewBag.price = CurrentUser.GetCurrentUserBusketItemsPrice(Request.Cookies[FormsAuthentication.FormsCookieName]);
+            ViewBag.number = CurrentUser.GetCurrentUserBusketItemsNumber(Request.Cookies[FormsAuthentication.FormsCookieName]);
 
 
             return View();
@@ -78,6 +92,9 @@ namespace EasyMarket.Controllers
 
         public ActionResult Contact()
         {
+            ViewBag.name = CurrentUser.GetCurrentUserName(Request.Cookies[FormsAuthentication.FormsCookieName]);
+            ViewBag.price = CurrentUser.GetCurrentUserBusketItemsPrice(Request.Cookies[FormsAuthentication.FormsCookieName]);
+            ViewBag.number = CurrentUser.GetCurrentUserBusketItemsNumber(Request.Cookies[FormsAuthentication.FormsCookieName]);
             
 
             return View();
@@ -86,6 +103,9 @@ namespace EasyMarket.Controllers
         
         public ActionResult Tshirts()
         {
+            ViewBag.name = CurrentUser.GetCurrentUserName(Request.Cookies[FormsAuthentication.FormsCookieName]);
+            ViewBag.price = CurrentUser.GetCurrentUserBusketItemsPrice(Request.Cookies[FormsAuthentication.FormsCookieName]);
+            ViewBag.number = CurrentUser.GetCurrentUserBusketItemsNumber(Request.Cookies[FormsAuthentication.FormsCookieName]);
             List<ItemInfo> itemsInfo = new List<ItemInfo>();
             List<Item> items = new List<Item>(db.Items.Where(m => m.type == "tshirt"));
             foreach (Item item in items)
@@ -101,6 +121,9 @@ namespace EasyMarket.Controllers
 
         public ActionResult Singlets()
         {
+            ViewBag.name = CurrentUser.GetCurrentUserName(Request.Cookies[FormsAuthentication.FormsCookieName]);
+            ViewBag.price = CurrentUser.GetCurrentUserBusketItemsPrice(Request.Cookies[FormsAuthentication.FormsCookieName]);
+            ViewBag.number = CurrentUser.GetCurrentUserBusketItemsNumber(Request.Cookies[FormsAuthentication.FormsCookieName]);
             List<ItemInfo> itemsInfo = new List<ItemInfo>();
             List<Item> items = new List<Item>(db.Items.Where(m => m.type == "singlet"));
             foreach (Item item in items)
@@ -115,6 +138,9 @@ namespace EasyMarket.Controllers
 
         public ActionResult Shirts()
         {
+            ViewBag.name = CurrentUser.GetCurrentUserName(Request.Cookies[FormsAuthentication.FormsCookieName]);
+            ViewBag.price = CurrentUser.GetCurrentUserBusketItemsPrice(Request.Cookies[FormsAuthentication.FormsCookieName]);
+            ViewBag.number = CurrentUser.GetCurrentUserBusketItemsNumber(Request.Cookies[FormsAuthentication.FormsCookieName]);
             List<ItemInfo> itemsInfo = new List<ItemInfo>();
             List<Item> items = new List<Item>(db.Items.Where(m => m.type == "shirt"));
             foreach (Item item in items)
@@ -130,6 +156,9 @@ namespace EasyMarket.Controllers
 
         public ActionResult Jumpers()
         {
+            ViewBag.name = CurrentUser.GetCurrentUserName(Request.Cookies[FormsAuthentication.FormsCookieName]);
+            ViewBag.price = CurrentUser.GetCurrentUserBusketItemsPrice(Request.Cookies[FormsAuthentication.FormsCookieName]);
+            ViewBag.number = CurrentUser.GetCurrentUserBusketItemsNumber(Request.Cookies[FormsAuthentication.FormsCookieName]);
             List<ItemInfo> itemsInfo = new List<ItemInfo>();
             List<Item> items = new List<Item>(db.Items.Where(m => m.type == "cardigan"));
             foreach (Item item in items)
@@ -144,6 +173,9 @@ namespace EasyMarket.Controllers
 
         public ActionResult Polos()
         {
+            ViewBag.name = CurrentUser.GetCurrentUserName(Request.Cookies[FormsAuthentication.FormsCookieName]);
+            ViewBag.price = CurrentUser.GetCurrentUserBusketItemsPrice(Request.Cookies[FormsAuthentication.FormsCookieName]);
+            ViewBag.number = CurrentUser.GetCurrentUserBusketItemsNumber(Request.Cookies[FormsAuthentication.FormsCookieName]);
             List<ItemInfo> itemsInfo = new List<ItemInfo>();
             List<Item> items = new List<Item>(db.Items.Where(m => m.type == "polo"));
             foreach (Item item in items)
@@ -158,6 +190,9 @@ namespace EasyMarket.Controllers
 
             public ActionResult Hoodies()
         {
+            ViewBag.name = CurrentUser.GetCurrentUserName(Request.Cookies[FormsAuthentication.FormsCookieName]);
+            ViewBag.price = CurrentUser.GetCurrentUserBusketItemsPrice(Request.Cookies[FormsAuthentication.FormsCookieName]);
+            ViewBag.number = CurrentUser.GetCurrentUserBusketItemsNumber(Request.Cookies[FormsAuthentication.FormsCookieName]);
             List<ItemInfo> itemsInfo = new List<ItemInfo>();
             List<Item> items = new List<Item>(db.Items.Where(m => m.type == "smock"));
             foreach (Item item in items)

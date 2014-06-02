@@ -146,6 +146,7 @@ E:\Универ\4 курс\Дипломное проектирование\easy 
 E:\Универ\4 курс\Дипломное проектирование\easy market\EasyMarket\EasyMarket\EasyMarket\obj\Debug\EasyMarket.csprojResolveAssemblyReference.cache
 E:\Универ\4 курс\Дипломное проектирование\easy market\EasyMarket\EasyMarket\EasyMarket\obj\Debug\EasyMarket.dll
 E:\Универ\4 курс\Дипломное проектирование\easy market\EasyMarket\EasyMarket\EasyMarket\obj\Debug\EasyMarket.pdb
+C:\Users\Алина\Новая папка\EasyMarket\EasyMarket\EasyMarket\obj\Debug\EasyMarket.csprojResolveAssemblyReference.cache
 C:\Users\Алина\Новая папка\EasyMarket\EasyMarket\EasyMarket\bin\EasyMarket.dll.config
 C:\Users\Алина\Новая папка\EasyMarket\EasyMarket\EasyMarket\bin\EasyMarket.dll
 C:\Users\Алина\Новая папка\EasyMarket\EasyMarket\EasyMarket\bin\EasyMarket.pdb

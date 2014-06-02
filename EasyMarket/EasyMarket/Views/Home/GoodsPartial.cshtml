@@ -1,7 +1,8 @@
-﻿@using EasyMarket.Models;
-
-<div>
+﻿@using EasyMarket.Models
 @model List<EasyMarket.Models.ItemInfo>
+
+<div id="cloud" style="color:white; padding-top:30px; border-radius: 10px; width: 200px; height: 80px; opacity: 0; position: fixed; display: block; top: 20px; right: 18px; z-index:1000;  text-align:center; background: black;">Товар добавлен в <a style="color: white" href="@Url.Action("Busket", "Sales")">корзину</a>!</div>
+<div>
 @foreach (ItemInfo item in Model)
 {
     @item.Item.name
@@ -10,7 +11,34 @@
     { 
         @size.size1
     }
-
+    <input class="buttonOK" id="@item.Item.id_item" style="float:left; width:50px; background-color:black; display:inline !important" type="submit">
+    <input class="" id="@item.Item.id_item" value="@item.Item.id_item" type="hidden" />
 }
-
 </div>
+
+    
+    
+    
+    
+<script type="text/javascript">
+        $('.buttonOK').click(function (e) {
+            e.preventDefault();
+            var itemId = $(this).attr('id');
+
+            $.ajax({
+                url: "@Url.Action("addBusket", "Sales")",
+                type: 'POST',
+                contentType: "application/json, utf-8",
+                data: JSON.stringify({ itemId : itemId })
+            })
+                       .done(function (result) {
+                               
+                           $("#cloud").animate({ opacity: '0.7' }, 500);
+                           $("#cloud").delay(1200).animate({opacity: '0'}, 600);
+                           
+                           $('#messageText').css('display', 'none');
+                           
+                        })
+        });
+               
+    </script>

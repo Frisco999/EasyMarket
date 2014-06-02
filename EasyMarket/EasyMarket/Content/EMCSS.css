@@ -18,6 +18,9 @@ src: url(/content/fonts/font3.ttf);
 font-family: font4;
 src: url(/content/fonts/font4.ttf);
 }
+.cloud{
+
+}
 input {
 background: #fdfdfc;
 text-transform: none;
@@ -237,6 +240,9 @@ margin: 4px 0px 0 1px;
 #buttonSearch {
 background: url(/Content/images/button-search.png) left top repeat-x;
 }
+#buttonSearch:hover {
+background: url(/Content/images/button-search1.png) left top repeat-x;
+}
 
 #bLogin {
 background: url(/Content/images/button-login.png) left top repeat-x;
@@ -269,6 +275,13 @@ width:80px;
 #buttonOK:hover {
 background: url(/Content/images/button-ok1.png) left top repeat-x;
 }
+#buttonAdd {
+background: url(/Content/images/button-ok.png) left top repeat-x;
+width:80px;
+}
+#buttonAdd:hover {
+background: url(/Content/images/button-ok1.png) left top repeat-x;
+}
 
 a:visited, a:active, a:after{
     color:red;
@@ -281,7 +294,21 @@ right: 100px;
 width: 90px;
 height: 37px;
 border: none;
-background: url(../Content/images/cart-img.gif) left top no-repeat;
+background: url(../Content/images/cart-img.gif) left center no-repeat;
+font: normal 12px/18px Arial, Helvetica, sans-serif;
+text-transform: none;
+padding: 0 0 0 48px;
+margin: 0;
+}
+.textcart {
+float:right;
+position:absolute;
+top: -14px;
+right: 100px;
+width: 90px;
+height: 37px;
+border: none;
+background: url(../Content/images/cart-img.gif) left center no-repeat;
 font: normal 12px/18px Arial, Helvetica, sans-serif;
 text-transform: none;
 padding: 0 0 0 48px;

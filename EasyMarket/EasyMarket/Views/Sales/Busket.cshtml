@@ -1,11 +1,20 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Корзина";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@model EasyMarket.Models.UserBusket
 <h2 >Корзина</h2>
 
-<p style="color:#989898; "> <em> Ваша корзина содержит: 0 товаров </em></p>
+<p style="color:#989898; "> <em> Ваша корзина содержит: @ViewBag.number </em></p>
 <hr />
-
+@if (Model != null) { 
+    foreach (var item in Model.temporaryBusketItems.Select(i => i.iteminfo.Images))
+    {
+          <img src="@item.FirstOrDefault().image1" />
+    }
+    }
+else
+{
+    <p>Извините, в вашей корзине еще нет товаров!</p>
+}
 

@@ -25,7 +25,7 @@
                     <input type="text" id="email" style="width: 200px; height: 30px; font-size: 16px; margin: -10px 0px 5px; !important;" />
                     <label class="labelAutorization">Пароль</label>
                     <input type="text" id="password" style="width: 200px; height: 30px; font-size: 16px; margin: -10px 0px 5px; !important;" />
-                    <input name="login" class="button" id="bLogin" style="float:left; display:inline !important" onmouseover="this.style.background = 'url(/Content/images/button-login1.png)'" onmouseout="    this.style.background = 'url(../Content/images/button-login.png)'" type="submit">
+                    <input name="login" class="button" id="bLogin" style="float:left; display:inline !important" type="submit">
                     <input type="checkbox" id="rememberme" style="display:inline; float:left; width: 15px; margin-left:5px; margin-top:9px !important">
                     <label style="display:inline; float:left; width: 15px; margin-left:5px; margin-top:9px !important">Запомнить</label>
                     <a class="button" id="buttonRegister" href="@Url.Action("Registration", "Accounts")">Регистрация</a>
@@ -51,11 +51,11 @@
                 data: JSON.stringify({ email : email, password : password, rememberme : rememberme }),
                 success: function (result) {
                     if (result != null) {
-                        alert = "!!!!!";
                         $("#error").text(result);
                     }
                     else {
                         $('#userControl').html(result);
+                        $('#busketNumber').text('5');
                     }
                   
                 }

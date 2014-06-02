@@ -161,6 +161,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Classes\CurrentUser.cs" />
+    <Compile Include="Models\BusketItemsAsgmt.cs">
+      <DependentUpon>EasyMarkerDBEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ItemInfo.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -198,15 +201,18 @@
     <Compile Include="Models\Order.cs">
       <DependentUpon>EasyMarkerDBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\BusketItem.cs" />
     <Compile Include="Models\Size.cs">
       <DependentUpon>EasyMarkerDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>EasyMarkerDBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserBusket.cs" />
     <Compile Include="Models\User.cs">
       <DependentUpon>EasyMarkerDBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -228,6 +234,8 @@
     <Content Include="Content\Images\button-registration3.png" />
     <Content Include="Content\Images\button-search.png" />
     <Content Include="Content\Images\button-search1.png" />
+    <Content Include="Content\Images\EM-icon.ico" />
+    <Content Include="Content\Images\EM-icon.png" />
     <Content Include="Content\Images\Goods\Hoodies\dzhemper-no-excess-dlya-muzhchin-sinego-tsveta-nx120323-photo-2.jpg" />
     <Content Include="Content\Images\Goods\Hoodies\dzhemper-no-excess-dlya-muzhchin-sinego-tsveta-nx120323-photo-3.jpg" />
     <Content Include="Content\Images\Goods\Hoodies\dzhemper-no-excess-dlya-muzhchin-sinego-tsveta-nx120323.jpg" />
@@ -533,7 +541,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Goods.cshtml" />
     <Content Include="Views\Home\NewGoods.cshtml" />
-    <Content Include="Views\Home\Graphical_Search.cshtml" />
+    <Content Include="Views\Home\GraphicalSearch.cshtml" />
     <Content Include="Views\Home\Delivery.cshtml" />
     <Content Include="Views\Home\Tshirts.cshtml" />
     <Content Include="Views\Home\Singlets.cshtml" />

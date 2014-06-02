@@ -1,4 +1,7 @@
-﻿@{
+﻿@using EasyMarket.Models;
+@using EasyMarket.Classes;
+@{
+    
     string actionName = ViewContext.RouteData.Values["Action"].ToString();
     string controllerName = ViewContext.RouteData.Values["Controller"].ToString();
     string pageItem = controllerName + "\\" + actionName;
@@ -7,6 +10,8 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <link rel="icon" href="~/Content/Images/EM-icon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/Scripts/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="~/scripts/jquery.smslider.min.js"></script>
@@ -27,8 +32,10 @@
             <div id="logo">
                 <a href="@Url.Action("Index","Home")"><img src="~/Content/Images/logo.png" /></a>
             </div>
-            <div class="cart">
-                <i>Сейчас&nbspв&nbspвашей&nbspкорзине</i><br /><a href="@Url.Action("Busket", "Sales")">0&nbspпокупок</a>
+            <div class="cart" >
+                <div style="margin-top:-10px; color:black !important">
+                    <i>Сейчас&nbspв&nbspвашей&nbspкорзине</i><br /><a href="@Url.Action("Busket", "Sales")"> <span style="color:black; display:inline-block; word-wrap:normal" id="busketNumber">@ViewBag.number</span><em style="color:black">  &nbspна&nbspсумму:</em>&nbsp<p style="display:inline; color:black">@ViewBag.price&nbspгрн</p></a>
+                </div>
             </div>
            
             <form action="@Url.Action("Search")" method="post">
@@ -43,7 +50,7 @@
                     <li  @{Write(pageItem == "Home\\Index" ? "class=active" : "");}><a href="@Url.Action("Index","Home")">Главная</a></li>
                     <li @{Write(pageItem == "Home\\Goods" ? "class=active" : "" );}><a href="@Url.Action("Goods", "Home")"> Товары </a></li>
                     <li @{Write(pageItem == "Home\\NewGoods" ? "class=active" : "" );}><a href="@Url.Action("NewGoods", "Home")">Новинки</a></li>
-                    <li @{Write(pageItem == "Home\\Graphical_Search" ? "class=active" : "");}><a href="@Url.Action("Graphical_Search", "Home")">Графический поиск</a></li>
+                    <li @{Write(pageItem == "Home\\GraphicalSearch" ? "class=active" : "");}><a href="@Url.Action("GraphicalSearch", "Home")">Графический поиск</a></li>
                     <li @{Write(pageItem == "Home\\Delivery" ? "class=active" : "");}><a href="@Url.Action("Delivery", "Home")">Доставка</a></li>
                     <li @{Write(pageItem == "Home\\Contact" ? "class=active" : "" );}><a href="@Url.Action("Contact", "Home" )">Контакты</a></li>
                 </ul>
@@ -53,6 +60,15 @@
         </div>
         <nav class="navbar navbar-inverse" role="navigation" style="border-radius: 0px; font-size: 20px; font-family: font1; text-shadow: 0.5px 0px 4px #999999;">
             <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" style="float:left; margin-left:40px">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                   
+                </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav" style="padding:0px 4%">
@@ -79,7 +95,7 @@
                             <li @{Write(pageItem == "Home\\Index" ? "class=active" : "");}><a href="@Url.Action("Index","Home")">Главная</a></li>
                             <li @{Write(pageItem == "Home\\Goods" ? "class=active" : "");}><a href="@Url.Action("Goods", "Home")"> Товары </a></li>
                             <li @{Write(pageItem == "Home\\NewGoods" ? "class=active" : "");}><a href="@Url.Action("NewGoods", "Home")">Новинки</a></li>
-                            <li @{Write(pageItem == "Home\\Graphical_Search" ? "class=active" : "");}><a href="@Url.Action("Graphical_Search", "Home")">Графический поиск</a></li>
+                            <li @{Write(pageItem == "Home\\GraphicalSearch" ? "class=active" : "");}><a href="@Url.Action("GraphicalSearch", "Home")">Графический поиск</a></li>
                             <li @{Write(pageItem == "Home\\Delivery" ? "class=active" : "");}><a href="@Url.Action("Delivery", "Home")">Доставка</a></li>
                             <li @{Write(pageItem == "Home\\Contact" ? "class=active" : "");}><a href="@Url.Action("Contact", "Home" )">Контакты</a></li>
 
