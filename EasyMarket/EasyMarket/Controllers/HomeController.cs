@@ -49,6 +49,11 @@ namespace EasyMarket.Controllers
         public ActionResult NewGoods()
         {
 
+            if (Request.Cookies[FormsAuthentication.FormsCookieName] != null) { ViewBag.Autorized = true; }
+            else
+            {
+                ViewBag.Autorized = false;
+            }
             List<ItemInfo> itemsInfo = new List<ItemInfo>();
             List<Item> items = new List<Item>(db.Items);
             items = items.Skip(items.Count()-3).ToList();
@@ -86,6 +91,12 @@ namespace EasyMarket.Controllers
         
         public ActionResult Tshirts()
         {
+
+            if (Request.Cookies[FormsAuthentication.FormsCookieName] != null) { ViewBag.Autorized = true; }
+            else
+            {
+                ViewBag.Autorized = false;
+            }
             List<ItemInfo> itemsInfo = new List<ItemInfo>();
             List<Item> items = new List<Item>(db.Items.Where(m => m.type == "tshirt"));
             foreach (Item item in items)
@@ -101,6 +112,11 @@ namespace EasyMarket.Controllers
 
         public ActionResult Singlets()
         {
+            if (Request.Cookies[FormsAuthentication.FormsCookieName] != null) { ViewBag.Autorized = true; }
+            else
+            {
+                ViewBag.Autorized = false;
+            }           
             List<ItemInfo> itemsInfo = new List<ItemInfo>();
             List<Item> items = new List<Item>(db.Items.Where(m => m.type == "singlet"));
             foreach (Item item in items)
@@ -115,6 +131,11 @@ namespace EasyMarket.Controllers
 
         public ActionResult Shirts()
         {
+            if (Request.Cookies[FormsAuthentication.FormsCookieName] != null) { ViewBag.Autorized = true; }
+            else
+            {
+                ViewBag.Autorized = false;
+            }
             List<ItemInfo> itemsInfo = new List<ItemInfo>();
             List<Item> items = new List<Item>(db.Items.Where(m => m.type == "shirt"));
             foreach (Item item in items)
@@ -130,6 +151,11 @@ namespace EasyMarket.Controllers
 
         public ActionResult Jumpers()
         {
+            if (Request.Cookies[FormsAuthentication.FormsCookieName] != null) { ViewBag.Autorized = true; }
+            else
+            {
+                ViewBag.Autorized = false;
+            }
             List<ItemInfo> itemsInfo = new List<ItemInfo>();
             List<Item> items = new List<Item>(db.Items.Where(m => m.type == "cardigan"));
             foreach (Item item in items)
@@ -144,6 +170,11 @@ namespace EasyMarket.Controllers
 
         public ActionResult Polos()
         {
+            if (Request.Cookies[FormsAuthentication.FormsCookieName] != null) { ViewBag.Autorized = true; }
+            else
+            {
+                ViewBag.Autorized = false;
+            }
             List<ItemInfo> itemsInfo = new List<ItemInfo>();
             List<Item> items = new List<Item>(db.Items.Where(m => m.type == "polo"));
             foreach (Item item in items)
@@ -158,7 +189,12 @@ namespace EasyMarket.Controllers
 
             public ActionResult Hoodies()
         {
-            List<ItemInfo> itemsInfo = new List<ItemInfo>();
+            if (Request.Cookies[FormsAuthentication.FormsCookieName] != null) { ViewBag.Autorized = true; }
+            else
+            {
+                ViewBag.Autorized = false;
+            }
+                List<ItemInfo> itemsInfo = new List<ItemInfo>();
             List<Item> items = new List<Item>(db.Items.Where(m => m.type == "smock"));
             foreach (Item item in items)
             {

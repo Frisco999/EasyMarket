@@ -216,6 +216,7 @@
     <Content Include="Content\fonts\font3.ttf" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
     <Content Include="Content\EMCSS.css" />
+    <Content Include="Content\GoodsPartial.css" />
     <Content Include="Content\Images\button-login.png" />
     <Content Include="Content\Images\button-login1.png" />
     <Content Include="Content\Images\button-logout.png" />
@@ -228,6 +229,7 @@
     <Content Include="Content\Images\button-registration3.png" />
     <Content Include="Content\Images\button-search.png" />
     <Content Include="Content\Images\button-search1.png" />
+    <Content Include="Content\Images\cart.png" />
     <Content Include="Content\Images\Goods\Hoodies\dzhemper-no-excess-dlya-muzhchin-sinego-tsveta-nx120323-photo-2.jpg" />
     <Content Include="Content\Images\Goods\Hoodies\dzhemper-no-excess-dlya-muzhchin-sinego-tsveta-nx120323-photo-3.jpg" />
     <Content Include="Content\Images\Goods\Hoodies\dzhemper-no-excess-dlya-muzhchin-sinego-tsveta-nx120323.jpg" />
@@ -457,6 +459,9 @@
     <Content Include="Content\Images\Goods\Tshirts\muzhskaya-zelenaya-futbolka-petrol-industries-pi-msp-ss14-tsr-ass-663.jpg" />
     <Content Include="Content\Images\icon_top.png" />
     <Content Include="Content\navbar.css" />
+    <Content Include="Content\StyleSheet1.css" />
+    <Content Include="Scripts\JavaScript1.js" />
+    <Content Include="Scripts\JavaScript2.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
     <Content Include="Scripts\jquery-2.0.3.min.js" />
     <Content Include="Scripts\jquery-latest.min.js" />
@@ -547,6 +552,7 @@
     <Content Include="Views\Accounts\AutorizationPartial.cshtml" />
     <Content Include="Views\Home\AutorizationPartial.cshtml" />
     <Content Include="Views\Sales\AutorizationPartial.cshtml" />
+    <Content Include="Views\Home\FilterPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
