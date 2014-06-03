@@ -161,6 +161,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Classes\CurrentUser.cs" />
+    <Compile Include="Classes\Scramble.cs" />
     <Compile Include="Models\BusketItemsAsgmt.cs">
       <DependentUpon>EasyMarkerDBEntities.tt</DependentUpon>
     </Compile>
@@ -228,6 +229,8 @@
     <Content Include="Content\Images\button-logout1.png" />
     <Content Include="Content\Images\button-ok.png" />
     <Content Include="Content\Images\button-ok1.png" />
+    <Content Include="Content\Images\button-order.png" />
+    <Content Include="Content\Images\button-order1.png" />
     <Content Include="Content\Images\button-registration.png" />
     <Content Include="Content\Images\button-registration1.png" />
     <Content Include="Content\Images\button-registration2.png" />

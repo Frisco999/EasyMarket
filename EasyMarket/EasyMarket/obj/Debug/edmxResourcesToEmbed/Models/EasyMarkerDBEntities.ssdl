@@ -23,7 +23,7 @@
       <PropertyRef Name="image" />
     </Key>
     <Property Name="item" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="image" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="image" Type="nvarchar" MaxLength="200" Nullable="false" />
   </EntityType>
   <EntityType Name="Item">
     <Key>
@@ -91,6 +91,7 @@
     <Property Name="num_purchases" Type="int" />
     <Property Name="rememberme" Type="bit" Nullable="false" />
     <Property Name="busket" Type="uniqueidentifier" />
+    <Property Name="isAdmin" Type="bit" Nullable="false" />
   </EntityType>
   <Association Name="FK_BusketItemsAsgmt_Busket">
     <End Role="Busket" Type="Self.Busket" Multiplicity="1" />

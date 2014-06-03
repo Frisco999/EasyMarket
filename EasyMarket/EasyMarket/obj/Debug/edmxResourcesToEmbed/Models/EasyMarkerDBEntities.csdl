@@ -114,6 +114,7 @@
     <Property Name="num_purchases" Type="Int32" />
     <Property Name="rememberme" Type="Boolean" Nullable="false" />
     <Property Name="busket" Type="Guid" />
+    <Property Name="isAdmin" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Busket1" Relationship="Model.FK_User_Busket" FromRole="User" ToRole="Busket" />
   </EntityType>
   <EntityType Name="Image">
@@ -122,7 +123,7 @@
       <PropertyRef Name="image1" />
     </Key>
     <Property Name="item" Type="Guid" Nullable="false" />
-    <Property Name="image1" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="image1" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Item1" Relationship="Model.FK_Image_Item" FromRole="Image" ToRole="Item" />
   </EntityType>
   <EntityType Name="Size">

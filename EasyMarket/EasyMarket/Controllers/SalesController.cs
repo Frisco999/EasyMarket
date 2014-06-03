@@ -75,6 +75,47 @@ namespace EasyMarket.Controllers
 
         }
 
+        public ActionResult deleteBusketItem(Guid itemId)
+        {
+            Guid temporaryItemId = itemId;
+            Guid currentBusketId = new Guid(CurrentUser.GetCurrentUserBusketItems(Request.Cookies[FormsAuthentication.FormsCookieName]));
+            if (currentBusketId != null)
+            {
+                BusketItemsAsgmt currentAsgmt = db.BusketItemsAsgmts.FirstOrDefault(i => i.id_Item == itemId && i.id_Busket == currentBusketId);
+                db.BusketItemsAsgmts.Remove(currentAsgmt);
+                db.SaveChanges();
+            }
+            return null;
+        }
+
+
+        public ActionResult deleteBusket()
+        {
+            Guid currentBusketId = new Guid(CurrentUser.GetCurrentUserBusketItems(Request.Cookies[FormsAuthentication.FormsCookieName]));
+            if (currentBusketId != null)
+            {
+                List<BusketItemsAsgmt> currentAsgmt = new List<BusketItemsAsgmt>(db.BusketItemsAsgmts.Where(i => i.id_Busket == currentBusketId));
+                foreach (var item in currentAsgmt)
+                {
+                db.BusketItemsAsgmts.Remove(item);
+                }
+                db.SaveChanges();
+            }
+            return RedirectToAction("Busket", "Sales");
+        }
+
+        public ActionResult updateBusketItemNumber(Guid itemId, int number)
+        {
+            Guid temporaryItemId = itemId;
+            Guid currentBusketId = new Guid(CurrentUser.GetCurrentUserBusketItems(Request.Cookies[FormsAuthentication.FormsCookieName]));
+            if (currentBusketId != null)
+            {
+                BusketItemsAsgmt currentAsgmt = db.BusketItemsAsgmts.FirstOrDefault(i => i.id_Item == itemId && i.id_Busket == currentBusketId);
+                currentAsgmt.number = number;
+                db.SaveChanges();
+            }
+            return null;
+        }
         
         public ActionResult addBusket(Guid itemId)
         {

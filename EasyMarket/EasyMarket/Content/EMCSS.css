@@ -236,7 +236,12 @@ height: 33px;
 padding: 0 0 2px 0;
 margin: 4px 0px 0 1px;
 }
-
+#buttonOrder {
+background: url(/Content/images/button-order.png) left top repeat-x;
+}
+#buttonOrder:hover {
+background: url(/Content/images/button-order1.png) left top repeat-x;
+}
 #buttonSearch {
 background: url(/Content/images/button-search.png) left top repeat-x;
 }
@@ -443,4 +448,14 @@ right:100px;
 display:none;
 text-indent:-9999px;
 background:  url('/Content/Images/icon_top.png')
+}
+
+.deleteItem{
+    text-wrap:normal;
+    font-size:18px;
+    padding-bottom:-1px;
+    cursor: pointer;
+}
+.deleteItem:hover{
+    color: #d71717;
 }

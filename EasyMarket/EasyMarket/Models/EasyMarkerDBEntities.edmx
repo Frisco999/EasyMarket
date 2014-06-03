@@ -28,7 +28,7 @@
             <PropertyRef Name="image" />
           </Key>
           <Property Name="item" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="image" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="image" Type="nvarchar" MaxLength="200" Nullable="false" />
         </EntityType>
         <EntityType Name="Item">
           <Key>
@@ -96,6 +96,7 @@
           <Property Name="num_purchases" Type="int" />
           <Property Name="rememberme" Type="bit" Nullable="false" />
           <Property Name="busket" Type="uniqueidentifier" />
+          <Property Name="isAdmin" Type="bit" Nullable="false" />
         </EntityType>
         <Association Name="FK_BusketItemsAsgmt_Busket">
           <End Role="Busket" Type="Self.Busket" Multiplicity="1" />
@@ -331,6 +332,7 @@
           <Property Name="num_purchases" Type="Int32" />
           <Property Name="rememberme" Type="Boolean" Nullable="false" />
           <Property Name="busket" Type="Guid" />
+          <Property Name="isAdmin" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Busket1" Relationship="Model.FK_User_Busket" FromRole="User" ToRole="Busket" />
         </EntityType>
         <EntityType Name="Image">
@@ -339,7 +341,7 @@
             <PropertyRef Name="image1" />
           </Key>
           <Property Name="item" Type="Guid" Nullable="false" />
-          <Property Name="image1" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="image1" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Item1" Relationship="Model.FK_Image_Item" FromRole="Image" ToRole="Item" />
         </EntityType>
         <EntityType Name="Size">
@@ -494,6 +496,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="Model.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="isAdmin" ColumnName="isAdmin" />
                 <ScalarProperty Name="busket" ColumnName="busket" />
                 <ScalarProperty Name="rememberme" ColumnName="rememberme" />
                 <ScalarProperty Name="num_purchases" ColumnName="num_purchases" />

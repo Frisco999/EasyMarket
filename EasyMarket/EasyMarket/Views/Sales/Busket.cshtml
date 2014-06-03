@@ -3,18 +3,84 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model EasyMarket.Models.UserBusket
-<h2 >Корзина</h2>
+<h2 style="display:inline">Корзина</h2> <a href="@Url.Action("deleteBusket", "Sales")" title="очистить корзину"><span class="glyphicon glyphicon-trash"></span></a>
 
 <p style="color:#989898; "> <em> Ваша корзина содержит: @ViewBag.number </em></p>
 <hr />
-@if (Model != null) { 
-    foreach (var item in Model.temporaryBusketItems.Select(i => i.iteminfo.Images))
+
+    @if (ViewBag.number != "0_покупок")
     {
-          <img src="@item.FirstOrDefault().image1" />
+        if (Model != null)
+      {
+    <table style="border-collapse: collapse; width:100%;">
+
+
+
+        @foreach (var item in Model.temporaryBusketItems)
+        {
+             <tr > <td style =""></td><td style="height:40px;"></td></tr>
+           
+            <tr style="font-style:italic; overflow:hidden; !important">
+                
+                <td style="border: 1px solid #b7b7b7; padding-left: 20px; width: 200px; overflow: hidden; margin:20px "><div style=""><img style="margin: -80px -60px -60px -20px; width: 200px" src="@item.iteminfo.Images.FirstOrDefault().image1" /></div></td>
+                <td style="padding-left:50px; color:#575757"><span style="color:black; font-size:18px; top:10px"><em> @item.iteminfo.Item.name </em></span><br />
+                <strong>Модель:</strong> @item.iteminfo.Item.model <br /><br />
+                <strong>Бренд:</strong> @item.iteminfo.Item.brand <br /><br />               
+                <strong>Цена:</strong><span style="color:#e51111"> @item.iteminfo.Item.prise</span> грн <br /><br /> 
+                <strong>Количество:    </strong>&nbsp&nbsp&nbsp<input class="quality" id="@item.iteminfo.Item.id_item" type="number" value="@item.number" max="100" min="1">&nbsp&nbsp<span class="deleteItem" id="@item.iteminfo.Item.id_item"><span class="glyphicon glyphicon-trash"></span></span><br /><br /></td>
+
+            </tr>
+         <tr > <td style ="height:40px; border-bottom: 1px solid #e5e5e5"></td><td style="height:40px; border-bottom: 1px solid #e5e5e5"></td><td style="height:40px; border-top: 1px solid #e5e5e5"></td></tr>
+           
+        }
+    <tr style=" border-top: 2px solid #575757"> <td style="padding-left: 40px; font-size: 24px">Итого:</td><td style="padding-right: 40px; font-size: 20px; color: #e51111; height: 40px; text-align: right; display: table-cell; text-wrap: normal">@ViewBag.price грн</td></tr>
+
+</table>
+<input class="button" id="buttonOrder" style=" margin-left: auto; margin-right: auto; width: 135px; background-color: black !important" type="submit">
+    } 
+    else
+    {
+        <p>Извините, в вашей корзине еще нет товаров!</p>
     }
-    }
-else
-{
-    <p>Извините, в вашей корзине еще нет товаров!</p>
 }
 
+
+<script type="text/javascript"> $(document).ready(function () {
+     $('.quality').keypress(function (e) {
+         return false;
+     });
+ });
+
+    $('.quality').blur(function (e) {
+        e.preventDefault();
+        var itemId = $(this).attr('id');
+        var number = $(this).val();
+
+        $.ajax({
+            url: "@Url.Action("updateBusketItemNumber", "Sales")",
+            type: 'POST',
+        contentType: "application/json, utf-8",
+        data: JSON.stringify({ itemId : itemId, number : number })
+    })
+                     .done(function (result) {
+                         location.reload();
+                           
+                     })
+    });
+    $('.deleteItem').click(function (e) {
+        e.preventDefault();
+        var itemId = $(this).attr('id');
+
+        $.ajax({
+            url: "@Url.Action("deleteBusketItem", "Sales")",
+            type: 'POST',
+        contentType: "application/json, utf-8",
+        data: JSON.stringify({ itemId : itemId })
+    })
+                 .done(function (result) {
+                     location.reload();
+                           
+                 })
+    });
+               
+    </script>

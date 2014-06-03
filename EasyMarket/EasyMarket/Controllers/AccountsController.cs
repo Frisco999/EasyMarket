@@ -61,18 +61,20 @@ namespace EasyMarket.Controllers
                     Busket newBusket = new Busket{Id_Busket = userBusket};
                     db.Buskets.Add(newBusket);
                 }
+                string newPassword = Scramble.Encrypt(model.password);
                 User user = new User
                 {
                     id_user = Guid.NewGuid(),
                     email = model.email,
                     name = model.name,
                     surname = model.surname,
-                    password = model.password,
+                    password = newPassword,
                     address = model.address,
                     phone = model.phone,
                     num_purchases = 0,
                     busket = userBusket,
-                    rememberme = false
+                    rememberme = false,
+                    isAdmin = false
                 };
 
                 db.Users.Add(user);
@@ -109,11 +111,11 @@ namespace EasyMarket.Controllers
             ViewBag.number = CurrentUser.GetCurrentUserBusketItemsNumber(Request.Cookies[FormsAuthentication.FormsCookieName]);
             if (user != null)
             {                         
-                User currentUser = db.Users.FirstOrDefault(x => x.email == user.email && x.password == user.password);
-                if (CurrentUser.GetCurrentUserBusket(Request.Cookies[FormsAuthentication.FormsCookieName]) != null)
-                {
-                    if (currentUser != null)
+                User currentUser = db.Users.FirstOrDefault(x => x.email == user.email && x.password == Scramble.Decrypt(user.password));
+               if (currentUser != null)
                     {
+                if (CurrentUser.GetCurrentUserBusket(Request.Cookies[FormsAuthentication.FormsCookieName]) != null)
+                {                    
                     Guid oldBusket = new Guid(CurrentUser.GetCurrentUserBusket(Request.Cookies[FormsAuthentication.FormsCookieName]));
                     User checkUser = db.Users.FirstOrDefault(i => i.busket == oldBusket);
                     if (checkUser == null)
@@ -130,6 +132,10 @@ namespace EasyMarket.Controllers
                     db.SaveChanges();
                     FormsAuthentication.SignOut();
                 }
+                }
+               if (currentUser == null)
+                {
+                    return null;
                 }
                     FormsAuthentication.SetAuthCookie(currentUser.email, user.rememberme);
                     //HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];

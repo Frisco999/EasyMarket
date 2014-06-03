@@ -135,7 +135,7 @@ namespace EasyMarket.Classes
                       {
                           if (number == "1")
                           {
-                              result = generalStringNumber + "_покупка";
+                              result = generalStringNumber + "_покупку";
                               return result;
                           }
                           else
